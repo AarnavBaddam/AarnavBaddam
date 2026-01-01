@@ -1,4 +1,4 @@
-ry<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <!--
   Student portfolio template authored by Prof. Vinay Kanth Rao Kodipelly
@@ -12,7 +12,7 @@ ry<!DOCTYPE html>
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   />
-  <title>Aarnav Baddam— Academic Portfolio | Active Learning Institute</title>
+  <title><!-- STUDENT: Your Name -->Aarnav Baddam— Academic Portfolio | Active Learning Institute</title>
 
   <!-- Basic SEO -->
   <meta
@@ -53,46 +53,47 @@ ry<!DOCTYPE html>
        ========================================================= */
 
     :root {
-      /* 1.1: Colors */
-      --navy: #1A237E; /* primary */
-      --green: #388E3C; /* accent (WCAG OK) */
-      --gold: #FFB300; /* highlight / primary CTA */
-      --teal-dark: #00796B; /* thematic */
-      --teal-light: #E0F2F1; /* thematic light */
-      --ink: #0f172a; /* heading ink */
-      --muted: #475569; /* body text */
-      --bg: #F5F7FF; /* page bg (light) */
-      --card: #FFFFFF; /* surfaces */
-      --border: #E0E3EC; /* lines */
+      /* Core identity */
+      --navy: #1F2933;        /* Graphite (used everywhere navy was) */
+      --green: #0EA5E9;       /* Ice Blue (primary accent) */
+      --gold: #22D3EE;        /* Signal Cyan (CTAs & highlights) */
 
-      /* 1.2: Stat Card Backgrounds */
-      --stat-bg-1: #e7f7e7; /* light green */
-      --stat-bg-2: #e9f0ff; /* light blue */
-      --stat-bg-3: #f3eef9; /* light purple */
-      --stat-bg-4: #fff9e6; /* light yellow */
-      --stat-bg-5: #fdeeee; /* light red */
+      /* Text */
+      --ink: #0B1220;         /* Near-black, very crisp */
+      --muted: #4B5563;      /* Cool gray */
 
-      /* 1.3: Typography */
-      --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial,
-        sans-serif;
+      /* Surfaces */
+      --bg: #F8FAFC;         /* Clean, neutral background */
+      --card: #FFFFFF;
+      --border: #E5E7EB;
+
+      /* Supporting accents */
+      --teal-dark: #0284C7;  /* Deeper blue for hover states */
+      --teal-light: #E0F2FE; /* Light blue surface fills */
+
+      /* Stat backgrounds (subtle only) */
+      --stat-bg-1: #ECFEFF;  /* Cyan mist */
+      --stat-bg-2: #EFF6FF;  /* Ice blue */
+      --stat-bg-3: #F1F5F9;  /* Slate */
+      --stat-bg-4: #E0F2FE;  /* Light sky */
+      --stat-bg-5: #F0FDFA;  /* Mint hint */
+
+      /* Typography */
+      --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       --font-heading: "Poppins", system-ui, sans-serif;
 
-      /* 1.4: Spacing & Sizing */
-      --s-12: 12px;
-      --s-16: 16px;
-      --container: 1200px;
-
-      /* 1.5: Borders & Radii */
+      /* Radii */
       --r-8: 8px;
       --r-10: 10px;
       --r-14: 14px;
       --r-pill: 999px;
 
-      /* 1.6: Shadows */
-      --shadow-1: 0 2px 8px rgba(26, 35, 126, 0.06);
-      --shadow-2: 0 4px 14px rgba(0, 0, 0, 0.08);
-      --shadow-3: 0 10px 25px rgba(0, 0, 0, 0.12);
+      /* Shadows (clean, modern) */
+      --shadow-1: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-2: 0 6px 14px rgba(15, 23, 42, 0.08);
+      --shadow-3: 0 14px 30px rgba(15, 23, 42, 0.12);
     }
+
 
     /* =========================================================
        SECTION 2: BASE STYLES & ACCESSIBILITY
@@ -270,24 +271,24 @@ ry<!DOCTYPE html>
       position: sticky;
       top: 0;
       z-index: 50;
-      border-bottom: 3px solid rgba(76, 175, 80, 0.18);
-      box-shadow: 0 2px 15px rgba(26, 35, 126, 0.08);
-      background: rgba(255, 255, 255, 0.92);
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-    }
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-1);
+      backdrop-filter: blur(8px);
+}
+
     .nav {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 10px 0;
-      min-height: 56px;
+      padding-left: 34px;
+      padding-right: 34px;
+      min-height: 44px;
     }
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 16px 30px 16px 16px;
+      gap: 6px;
+      padding: 6px 12px;
       border-radius: 26px;
       transition: 0.2s;
     }
@@ -296,24 +297,15 @@ ry<!DOCTYPE html>
       box-shadow: 0 3px 10px rgba(26, 35, 126, 0.05);
       transform: translateY(-1px);
     }
-    .brand-badge {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: var(--navy);
-      box-shadow: 0 2px 6px rgba(26, 35, 126, 0.18);
-      color: #fff;
-      font: 800 18px var(--font-heading);
-    }
+
     .brand-title {
       display: flex;
       flex-direction: column;
       line-height: 1.05;
+      gap: 1px;
     }
     .brand-title .t1 {
-      font: 800 1.05rem var(--font-heading);
+      font: 800 1.25rem var(--font-heading);
       color: var(--navy);
       letter-spacing: -0.01em;
     }
@@ -330,11 +322,11 @@ ry<!DOCTYPE html>
     .nav-links {
       margin-left: auto;
       display: flex;
-      gap: 8px;
+      gap: 1px;
       align-items: center;
     }
     .nav-links a {
-      padding: 8px 12px;
+      padding: 4px 10px;
       border-radius: 20px;
       font-weight: 700;
       transition: 0.2s;
@@ -384,63 +376,63 @@ ry<!DOCTYPE html>
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 16px;
-      border-radius: 28px;
-      border: 2px solid transparent;
-      font: 800 0.9rem var(--font-body);
-      transition: filter 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font: 700 0.9rem var(--font-body);
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
     }
+
     .btn--primary {
       background: var(--gold);
-      color: #231700;
+      color: #1f2933;
       box-shadow: var(--shadow-1);
     }
+
     .btn--primary:hover {
-      filter: brightness(0.97);
+      filter: brightness(0.96);
     }
+
     .btn--secondary {
       background: var(--green);
-      color: #fff;
-      box-shadow: var(--shadow-1);
+      color: #ffffff;
+      padding: 10px 20px;
     }
-    .btn--secondary:hover {
-      filter: brightness(0.97);
-    }
+
     .btn--quiet {
-      background: var(--card);
+      background: transparent;
       color: var(--navy);
       border-color: var(--navy);
     }
+
     .btn--quiet:hover {
       background: #f3f6ff;
     }
+
 
     /* Chips / Pills */
     .chip {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
       padding: 6px 12px;
-      border-radius: var(--r-pill);
+      border-radius: 999px;
+      font: 600 0.8rem var(--font-body);
       border: 1px solid var(--border);
       background: #f8faff;
       color: var(--navy);
-      font: 700 0.85rem var(--font-body);
     }
+
     .chip[data-variant="grade"] {
-      background: #eff6ff;
-      border-color: #dbeafe;
+      background: #EFF6FF;
+      border-color: #DBEAFE;
     }
+
     .chip[data-variant="tag"] {
-      background: #e8f5e9;
-      border-color: #c8e6c9;
-      color: #1b5e20;
+      background: #E8F5E9;
+      border-color: #C8E6C9;
+      color: #1B5E20;
     }
-    .chip[data-variant="thematic"] {
-      background: var(--teal-light);
-      border-color: #cbd5e1;
-      color: var(--teal-dark);
-    }
+
 
     /* Lists */
     .list {
@@ -467,10 +459,14 @@ ry<!DOCTYPE html>
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--r-10);
-      box-shadow: var(--shadow-2);
-      padding: var(--s-16);
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 16px;
+      box-shadow: var(--shadow-1);
+      transition: box-shadow 0.2s ease;
     }
+.card:hover {
+  box-shadow: var(--shadow-2);
+}
+
     .card:hover {
       transform: translateY(-3px);
       box-shadow: var(--shadow-3);
@@ -531,13 +527,14 @@ ry<!DOCTYPE html>
       margin: 0.4rem 0 0;
     }
     .hero-avatar {
-      width: 96px;
-      height: 96px;
+      width: 167px;
+      height: 167px;
       border-radius: 50%;
       object-fit: cover;
-      border: 3px solid rgba(255, 255, 255, 0.9);
+      border: 5px solid rgba(255, 255, 255, 0.9);
       box-shadow: var(--shadow-2);
-      margin-bottom: 14px;
+      margin-bottom: 1px;
+      margin-top: 14px;
     }
     .hero-layout {
       display: grid;
@@ -584,7 +581,7 @@ ry<!DOCTYPE html>
       text-transform: uppercase;
       letter-spacing: 0.12em;
       color: var(--green);
-      margin-bottom: 2px;
+      margin-bottom: 14px;
     }
     .section-header p {
       margin: 4px 0 0;
@@ -736,19 +733,20 @@ ry<!DOCTYPE html>
       display: flex;
       gap: 16px;
       align-items: flex-start;
-      padding: 16px;
+      padding: 12px 14px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--r-10);
       transition: transform 0.2s;
+        min-height: min(calc(100% + 30px), 140px); /* takes the smaller of 100%+30px or 140px */
     }
     .resource-card:hover {
-      transform: translateY(-2px);
+      transform: translateY(2px);
       border-color: var(--navy);
     }
     .resource-icon {
       flex-shrink: 0;
-      width: 40px;
+      width: 80px;
       height: 40px;
       background: var(--stat-bg-2);
       color: var(--navy);
@@ -779,8 +777,8 @@ ry<!DOCTYPE html>
       box-shadow: var(--shadow-3);
     }
     .artifact-thumb img {
-      width: 100%;
-      height: 100%;
+      width: 210%;
+      height: 210%;
       object-fit: cover;
       transition: transform 0.3s;
     }
@@ -848,7 +846,7 @@ ry<!DOCTYPE html>
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Aarnav Baddam",
-    "description": "High school student building a math and STEM portfolio with the Active Learning Institute (ActiveSTEM.org).",
+    "description": "A High school student building a math and STEM portfolio with the Active Learning Institute (ActiveSTEM.org).",
     "url": "https://username.github.io/portfolio/",
     "affiliation": {
       "@type": "Organization",
@@ -865,11 +863,9 @@ ry<!DOCTYPE html>
   <header class="site-header" role="banner">
     <div class="container nav">
       <a class="brand" href="#">
-        <span class="brand-badge">AB</span>
         <span class="brand-title">
           <span class="t1">Aarnav Baddam</span>
           <span class="t2">Math &amp; STEM Portfolio</span>
-          <span class="t3">Academic Portfolio</span>
         </span>
       </a>
 
@@ -933,7 +929,7 @@ ry<!DOCTYPE html>
           <div class="kicker">Student Portfolio</div>
           <!-- STUDENT: Update the image file path to your own photo in this repo -->
           <img
-            src="corpra/words/crypto.py/downloads/IMG_1552.jpg"
+            src="/Images/IMG_1552.png"
             alt="Portrait of Aarnav Baddam"
             class="hero-avatar"
           />
@@ -963,7 +959,7 @@ ry<!DOCTYPE html>
             <div class="hero-meta-card">
               <div class="hero-meta-label">Academic Focus</div>
               <div class="hero-meta-value">
-                Algebra II · Geometry · SAT Math Readiness
+                Algebra II · Geometry · ACT Math Readiness
               </div>
             </div>
             <a
@@ -1039,14 +1035,17 @@ ry<!DOCTYPE html>
               <span class="chip" data-variant="tag">STEM Track</span>
             </div>
             <ul class="list">
-              <li><strong>Interests:</strong> Mathematics, data, coding.</li>
+              <li><strong>Interests:</strong> Mathematics, science, coding.</li>
               <li><strong>Planned Path:</strong> Engineering / Computer Science.</li>
               <li><strong>Strengths:</strong> Logical reasoning, pattern spotting.</li>
               <li><strong>Working On:</strong> Step-by-step writing, exam timing.</li>
             </ul>
             <div class="quote-box fade-in-up">
               <div class="quote-text">
-                "Sruthi has demonstrated a remarkable ability not just to solve problems, but to deconstruct her own errors. Her dedication to 'full-solution' writing sets her apart."
+                "Aarnav has shown great enthusiasm for learning and a strong
+                commitment to improving his mathematical skills. His proactive
+                approach to seeking help and his dedication to mastering concepts
+                are commendable."
               </div>
               <div class="quote-author">Prof. Vinay Kodipelly</div>
               <div class="quote-role">
@@ -1079,29 +1078,35 @@ ry<!DOCTYPE html>
                   <tr>
                     <th>Course</th>
                     <th>Level</th>
-                    <th>Where</th>
+                    <th>Institution</th>
                     <th>Notes</th>
                   </tr>
                 </thead>
                 <tbody>
                   <!-- STUDENT: replace with your own entries -->
                   <tr>
-                    <td>Algebra II</td>
+                    <td>Honors Geometry</td>
                     <td>Honors</td>
-                    <td>School</td>
-                    <td>Functions, quadratics, exponentials.</td>
+                    <td>PWHS</td>
+                    <td>Points, lines, angles, shapes.</td>
                   </tr>
                   <tr>
-                    <td>Pre-Calculus Foundations</td>
-                    <td>Enrichment</td>
-                    <td>Active Learning Institute</td>
-                    <td>Previewing trig, vectors, and limits.</td>
+                    <td>Honors Biology</td>
+                    <td>Honors</td>
+                    <td>PWHS</td>
+                    <td>Cells, genetics, evolution, ecology</td>
                   </tr>
                   <tr>
-                    <td>ACT Math Prep</td>
+                    <td>AP Human Geography</td>
+                    <td>AP Course</td>
+                    <td>PWHS</td>
+                    <td>Population, culture, cities, regions</td>
+                  </tr>
+                  <tr>
+                    <td>Algebra II</td>
                     <td>Coaching</td>
                     <td>Active Learning Institute</td>
-                    <td>Strengthening speed with written work.</td>
+                    <td>Functions, quadratics, exponentials.</td>
                   </tr>
                 </tbody>
               </table>
@@ -1112,8 +1117,8 @@ ry<!DOCTYPE html>
             <h3>Skill Focus</h3>
             <ul class="list">
               <li>Writing solutions fully, not jumping from question to answer.</li>
-              <li>Translating word problems into equations and inequalities.</li>
-              <li>Checking units, reasonableness, and final answer format.</li>
+              <li>Solving problems in a timely manner.</li>
+              <li>Being able to explain my reasoning and process clearly.</li>
               <li>Building summary sheets from my own class notes.</li>
             </ul>
           </aside>
@@ -1128,33 +1133,84 @@ ry<!DOCTYPE html>
           <h2>Reading &amp; Self-Study</h2>
           <p>Books, papers, and resources I am exploring beyond the curriculum.</p>
         </div>
-
-        <div class="grid-2">
+        <div class="grid-2" style="margin-top:16px">
           <a href="#" class="resource-card fade-in-up">
-            <div class="resource-icon">📖</div>
+            <div class="resource-icon">
+            <img src="/Images/glhahh.png" alt="Go Like Hell" style="width:100%; height:100%; border-radius:8px;">
+            </div>
             <div>
-              <h3 style="font-size: 1rem; margin: 0 0 4px">Infinite Powers (Strogatz)</h3>
+              <h3 style="font-size: 1rem; margin: 0 0 4px">Go Like Hell</h3>
               <p style="font-size: 0.85rem; margin: 0; color: var(--muted)">
-                Reading to understand the historical development of Calculus before taking the course.
+                 Read to explore the real-life story of the Ford vs. Ferrari rivalry, gaining insight into high-performance engineering, teamwork, and innovation in motorsports.
               </p>
-              <div style="margin-top:8px; font-size:0.75rem; color:var(--green); font-weight:700">
+               <div style="margin-top:8px; font-size:0.75rem; color:var(--green); font-weight:700">
                 Status: In Progress
               </div>
             </div>
           </a>
 
           <a href="#" class="resource-card fade-in-up">
-            <div class="resource-icon">📄</div>
+            <div class="resource-icon">
+            <img src="Images/aefahh.jpeg" alt="Automotive Engineering Fundamentals" style="width:100%; height:100%; border-radius:8px;">
+            </div>
             <div>
-              <h3 style="font-size: 1rem; margin: 0 0 4px">Introduction to R for Data Science</h3>
+              <h3 style="font-size: 1rem; margin: 0 0 4px">Automotive Engineering Fundamentals</h3>
               <p style="font-size: 0.85rem; margin: 0; color: var(--muted)">
-                 Self-paced online module to learn basic data visualization techniques.
+                 Read to understand the core principles of car design, engine mechanics, and vehicle systems for practical engineering applications.
+              </p>
+               <div style="margin-top:8px; font-size:0.75rem; color:var(--green); font-weight:700">
+                Status: In Progress
+              </div>
+            </div>
+          </a>
+          
+
+          <a href="#" class="resource-card fade-in-up" style="margin-top:16px">
+            <div class="resource-icon">
+            <img src="Images/oldahh.jpeg" alt="1984" style="width:100%; height:100%; border-radius:8px;">
+            </div>
+            <div>
+              <h3 style="font-size: 1rem; margin: 0 0 4px">1984</h3>
+              <p style="font-size: 0.85rem; margin: 0; color: var(--muted)">
+                 Dystopian novel exploring totalitarianism, surveillance, and individual freedom.
+               <div style="margin-top:8px; font-size:0.75rem; color:var(--green); font-weight:700">
+                Status: In Progress
+              </div>
+            </div>
+          </a>
+          
+        <div class="grid-2" style="margin-top:16px">
+          <a href="#" class="resource-card fade-in-up">
+            <div class="resource-icon">
+            <img src="/Images/pythonahh.png" alt="Python Book" style="width:120%; height:120%; object-fit:cover; border-radius:8px;">
+            </div>
+            <div>
+              <h3 style="font-size: 1rem; margin: 0 0 4px">Python For Dummies</h3>
+              <p style="font-size: 0.85rem; margin: 0; color: var(--muted)">
+                Read to understand basic programming concepts and Python syntax.
+              </p>
+              <div style="margin-top:8px; font-size:0.75rem; color:var(--navy); font-weight:700">
+                Status: Completed
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="resource-card fade-in-up">
+            <div class="resource-icon">
+            <img src="/Images/tkamahh.png" alt="To Kill a Mockingbird" style="width:100%; height:100%; border-radius:8px;">
+            </div>
+            <div>
+              <h3 style="font-size: 1rem; margin: 0 0 4px">To Kill a Mockingbird</h3>
+              <p style="font-size: 0.85rem; margin: 0; color: var(--muted)">
+                 Read to explore social justice, empathy, and moral growth through the eyes of a young protagonist.
               </p>
                <div style="margin-top:8px; font-size:0.75rem; color:var(--navy); font-weight:700">
                 Status: Completed
               </div>
             </div>
           </a>
+
+
         </div>
       </div>
     </section>
@@ -1356,16 +1412,16 @@ ry<!DOCTYPE html>
               <tbody>
                 <!-- STUDENT: update as you go -->
                 <tr>
-                  <td>ACT Math Diagnostic</td>
-                  <td>Month Year</td>
-                  <td>Score (e.g. 24/36)</td>
-                  <td>First benchmark; identified algebra and word-problem gaps.</td>
+                  <td>Biology Semester final</td>
+                  <td>December 2025</td>
+                  <td>96/100</td>
+                  <td>Biology final; mastered key concepts and strengthened retention.</td>
                 </tr>
                 <tr>
-                  <td>Algebra II Midterm</td>
-                  <td>Month Year</td>
-                  <td>Grade / %</td>
-                  <td>Lost marks mainly due to skipped steps and minor mistakes.</td>
+                  <td>Geometry Final</td>
+                  <td>December 2025</td>
+                  <td>91%</td>
+                  <td>Lost points mainly due to minor mistakes and incomplete understanding.</td>
                 </tr>
                 <tr>
                   <td>ActiveSTEM Practice Set – Algebra Review</td>
@@ -1397,32 +1453,33 @@ ry<!DOCTYPE html>
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-title">Started Coaching with Active Learning Institute</div>
-              <div class="timeline-meta">Month Year</div>
+              <div class="timeline-meta">November, 2025</div>
               <div class="timeline-body">
                 Began structured sessions focusing on foundations, written work,
                 and exam skills.
               </div>
             </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-title">Launched This Portfolio Website</div>
+              <div class="timeline-meta">January, 2026</div>
+              <div class="timeline-body">
+                Set up this GitHub Pages site to organise my work and make it
+                easier to reflect and share.
+              </div>
+            </div>
 
             <div class="timeline-item">
               <div class="timeline-dot"></div>
-              <div class="timeline-title">First Math Marathon / Bowl</div>
-              <div class="timeline-meta">Month Year</div>
+              <div class="timeline-title">First Math Bowl</div>
+              <div class="timeline-meta">April 2026</div>
               <div class="timeline-body">
                 Experienced contest-style questions under time pressure and
                 learnt to manage pacing.
               </div>
             </div>
 
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-title">Launched This Portfolio Website</div>
-              <div class="timeline-meta">Month Year</div>
-              <div class="timeline-body">
-                Set up this GitHub Pages site to organise my work and make it
-                easier to reflect and share.
-              </div>
-            </div>
+
           </div>
         </article>
       </div>
