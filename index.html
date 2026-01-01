@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <!--
@@ -51,6 +52,14 @@
        SECTION 1: DESIGN TOKENS (CSS VARIABLES)
        (From Active Learning Institute brand kit)
        ========================================================= */
+    .typing {
+      font-weight: 700;
+      color: var(--navy);
+      border-right: 2px solid var(--navy);
+      padding-right: 4px;
+      white-space: nowrap;
+    }
+
 
     :root {
       /* Core identity */
@@ -275,7 +284,70 @@
       border-bottom: 1px solid var(--border);
       box-shadow: var(--shadow-1);
       backdrop-filter: blur(8px);
-}
+    }
+
+    /* ==========================
+      Floating translucent header
+      ========================== */
+    .site-header {
+      position: fixed;
+      top: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(16px);
+      border-radius: 32px;
+      padding: 20px 48px;
+      box-shadow: var(--shadow-3);
+      width: 90%;
+      max-width: 1440px;
+      transition: all 0.3s ease, top 0.3s ease, padding 0.3s ease;
+    }
+
+    /* Minimized state when scrolling down */
+    .site-header.minimized {
+      padding: 10px 32px;
+      top: 8px;
+      backdrop-filter: blur(12px);
+    }
+
+    /* Push content down so it doesn’t get covered */
+    body {
+      padding-top: 180px;
+    }
+
+    /* Nav links container */
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      position: relative;
+      justify-content: center;
+    }
+
+    /* Circular / oval slider indicator */
+    .nav-slider {
+      position: absolute;
+      bottom: -12px;
+      width: 80px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--green);
+      transition: left 0.2s ease, width 0.2s ease;
+      pointer-events: none; /* doesn’t block clicks */
+    }
+
+    /* Nav links styling */
+    .nav-links a {
+      padding: 10px 16px;
+      font-weight: 700;
+      font-size: 1rem;
+      position: relative;
+    }
+
+
+
+
 
     .nav {
       display: flex;
@@ -911,13 +983,14 @@
       <nav id="nav-links" class="nav-links" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#academics">Academics</a>
-        <a href="#projects">Projects & Events</a>
+        <a href="#projects">Projects</a>
         <a href="#leadership">Leadership</a>
-        <a href="#notes">Notes</a>
-        <a href="#exams">Exams</a>
-        <a href="#timeline">Timeline</a>
         <a href="#contact" class="btn btn--secondary">Contact</a>
+
+        <!-- Slider indicator -->
+        <div class="nav-slider"></div>
       </nav>
+
     </div>
   </header>
 
@@ -934,6 +1007,7 @@
             class="hero-avatar"
           />
           <h1><!-- STUDENT: Your full name -->Aarnav Baddam</h1>
+          <span class="typing" data-words='["Student. Developer. Engineer."]'></span>
           <p class="lead">
             <!-- STUDENT: 2–3 lines describing yourself -->
             High school student with a growing interest in mathematics, problem
@@ -1631,5 +1705,103 @@
       animatedEls.forEach((el) => observer.observe(el));
     });
   </script>
+
+
+
+
+
+
+
+          <script>
+            document.querySelectorAll(".typing").forEach(el => {
+              const words = JSON.parse(el.dataset.words);
+              let wordIndex = 0;
+              let charIndex = 0;
+              let deleting = false;
+
+              function type() {
+                const currentWord = words[wordIndex];
+
+                if (!deleting) {
+                  el.textContent = currentWord.slice(0, charIndex + 1);
+                  charIndex++;
+
+                  if (charIndex === currentWord.length) {
+                    setTimeout(() => deleting = true, 1200);
+                  }
+                } else {
+                  el.textContent = currentWord.slice(0, charIndex - 1);
+                  charIndex--;
+
+                  if (charIndex === 0) {
+                    deleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                  }
+                }
+
+                setTimeout(type, deleting ? 40 : 70);
+              }
+
+              type();
+            });
+          </script>
+
+          <script>
+                // ===== Floating header minimize on scroll =====
+                const header = document.querySelector('.site-header');
+                let lastScroll = 0;
+
+                window.addEventListener('scroll', () => {
+                  const currentScroll = window.pageYOffset;
+
+                  if (currentScroll > lastScroll && currentScroll > 50) {
+                    // Scrolling down
+                    header.classList.add('minimized');
+                  } else {
+                    // Scrolling up
+                    header.classList.remove('minimized');
+                  }
+
+                  lastScroll = currentScroll;
+                });
+
+                // ===== Slider indicator =====
+                const nav = document.querySelector('.nav-links');
+                const slider = document.querySelector('.nav-slider');
+                const links = document.querySelectorAll('.nav-links a');
+
+                function moveSlider(link) {
+                  const linkRect = link.getBoundingClientRect();
+                  const navRect = nav.getBoundingClientRect();
+                  
+                  slider.style.width = `${linkRect.width}px`;
+                  slider.style.left = `${linkRect.left - navRect.left}px`;
+                }
+
+                // Move slider on hover
+                links.forEach(link => {
+                  link.addEventListener('mouseenter', () => {
+                    moveSlider(link);
+                  });
+                });
+
+                // Move slider back to first link on mouse leave
+                nav.addEventListener('mouseleave', () => {
+                  const activeLink = document.querySelector('.nav-links a.active') || links[0];
+                  moveSlider(activeLink);
+                });
+
+                // Initialize slider on page load
+                window.addEventListener('load', () => {
+                  const activeLink = document.querySelector('.nav-links a.active') || links[0];
+                  moveSlider(activeLink);
+                });
+              </script>
+
+
+
+
+
+
 </body>
 </html>
