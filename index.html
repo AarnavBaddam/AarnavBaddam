@@ -67,6 +67,9 @@
       --green: #0EA5E9;       /* Ice Blue (primary accent) */
       --gold: #22D3EE;        /* Signal Cyan (CTAs & highlights) */
 
+      --container: 1200px;
+
+
       /* Text */
       --ink: #0B1220;         /* Near-black, very crisp */
       --muted: #4B5563;      /* Cool gray */
@@ -107,6 +110,61 @@
     /* =========================================================
        SECTION 2: BASE STYLES & ACCESSIBILITY
        ========================================================= */
+
+    .accordion {
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      margin-bottom: 40px; /* adjust if needed */
+    }
+
+    .accordion-header {
+      width: 100%;
+      background: #fff;
+      border: none;
+      padding: 18px 22px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .accordion-header.highlight {
+      background: #fff;
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .accordion-inner {
+      padding: 14px 22px 20px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .list li {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-header.active .icon {
+      transform: rotate(45deg);
+    }
+
 
     @media (prefers-reduced-motion: reduce) {
       * {
@@ -274,17 +332,6 @@
     /* =========================================================
        SECTION 4: UI COMPONENTS
        ========================================================= */
-
-    /* Header / Nav */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid var(--border);
-      box-shadow: var(--shadow-1);
-      backdrop-filter: blur(8px);
-    }
 
     /* ==========================
       Floating translucent header
@@ -818,15 +865,22 @@
     }
     .resource-icon {
       flex-shrink: 0;
-      width: 80px;
-      height: 40px;
+      width: 80px;       /* fixed width */
+      height: auto;      /* height adjusts automatically */
       background: var(--stat-bg-2);
-      color: var(--navy);
       border-radius: 8px;
-      display: grid;
-      place-items: center;
-      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
     }
+
+    .resource-icon img {
+      width: 100%;       /* fills width */
+      height: auto;      /* height scales naturally */
+      border-radius: 8px;
+    }
+
 
     /* 2. Visual Artifacts (Notes Gallery) */
     .artifact-grid {
@@ -1054,22 +1108,6 @@
           </div>
         </div>
 
-        <aside class="surface" style="padding: 18px">
-          <h3>Current Goals</h3>
-          <ul class="list">
-            <li>Write full step-by-step solutions in algebra and functions.</li>
-            <li>Build disciplined note-taking for school and coaching sessions.</li>
-            <li>Prepare early for ACT / AP-level mathematics.</li>
-          </ul>
-
-          <h3 style="margin-top: 16px">Quick Highlights</h3>
-          <ul class="list">
-            <!-- STUDENT: Replace with your own highlights -->
-            <li>Participated in an ActiveSTEM Math Marathon event.</li>
-            <li>Regularly works on problems beyond school textbook level.</li>
-            <li>Building this GitHub-based portfolio from scratch.</li>
-          </ul>
-        </aside>
       </div>
     </section>
 
@@ -1077,6 +1115,39 @@
     <section id="about" class="section">
       <div class="container">
         <div class="section-header">
+
+            <div class="accordion">
+
+            <button class="accordion-header">
+              Current Goals
+              <span class="icon">×</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <ul class="list">
+                  <li>Write full step-by-step solutions in algebra and functions.</li>
+                  <li>Build disciplined note-taking for school and coaching sessions.</li>
+                  <li>Prepare early for ACT / AP-level mathematics.</li>
+                </ul>
+              </div>
+            </div>
+
+            <button class="accordion-header highlight">
+              Quick Highlights
+              <span class="icon">×</span>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <ul class="list">
+                  <li>Participated in an ActiveSTEM Math Marathon event.</li>
+                  <li>Regularly works on problems beyond school textbook level.</li>
+                  <li>Building this GitHub-based portfolio from scratch.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
           <div class="kicker">About Me</div>
           <h2>Who I Am & What Im Working Towards</h2>
           <p>
@@ -1256,7 +1327,7 @@
         <div class="grid-2" style="margin-top:16px">
           <a href="#" class="resource-card fade-in-up">
             <div class="resource-icon">
-            <img src="/Images/pythonahh.png" alt="Python Book" style="width:120%; height:120%; object-fit:cover; border-radius:8px;">
+            <img src="/Images/pythonahh.png" alt="Python Book">
             </div>
             <div>
               <h3 style="font-size: 1rem; margin: 0 0 4px">Python For Dummies</h3>
@@ -1798,10 +1869,24 @@
                 });
               </script>
 
+              <script>
+                const headers = document.querySelectorAll(".accordion-header");
 
+                headers.forEach(header => {
+                  header.addEventListener("click", () => {
+                    const content = header.nextElementSibling;
 
+                    header.classList.toggle("active");
+                    content.classList.toggle("open");
 
-
+                    if (content.classList.contains("open")) {
+                      content.style.maxHeight = content.scrollHeight + "px";
+                    } else {
+                      content.style.maxHeight = null;
+                    }
+                  });
+                });
+              </script>
 
 </body>
 </html>
