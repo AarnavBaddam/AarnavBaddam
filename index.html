@@ -52,6 +52,73 @@
        SECTION 1: DESIGN TOKENS (CSS VARIABLES)
        (From Active Learning Institute brand kit)
        ========================================================= */
+
+    /* Full-width carousel */
+    .carousel-fullwidth-container {
+      position: relative;
+      overflow: hidden;
+      width: 100vw;
+      max-width: 100%;
+      margin: 0;
+      padding: 40px 0;        /* keep padding inside slides only */
+      background: inherit;    /* match section background */
+    }
+
+    .chalky-section {
+      background-color: #F8FAFC; /* chalky color */
+      padding: 60px 0;           /* space above/below carousel */
+    }
+
+    .carousel-fullwidth {
+      display: flex;
+      transition: transform 0.4s ease;
+    }
+
+    .carousel-slide {
+      flex: 0 0 100%;
+      padding: 40px 60px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .carousel-slide h3 {
+      font-size: 1.6rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .carousel-slide p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* Carousel buttons */
+    .carousel-prev,
+    .carousel-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: var(--green);
+      background: rgba(255,255,255,0.9);
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .carousel-prev { left: 20px; }
+    .carousel-next { right: 20px; }
+
+    .carousel-prev:hover,
+    .carousel-next:hover { background: var(--green); color: #fff; }
+
+
     .typing {
       font-weight: 700;
       color: var(--navy);
@@ -630,7 +697,7 @@
       position: relative;
       overflow: hidden;
       background: linear-gradient(135deg, rgba(245, 247, 255, 0.98) 0%, #fff 100%);
-      padding: 60px 0 60px;
+      padding: 15px 0 15px;
       border-bottom: 1px solid var(--border);
     }
     .hero .kicker {
@@ -1072,7 +1139,10 @@
 
           <div class="row" style="margin-top: 18px">
             <!-- STUDENT: Update resume link if you have one -->
-            <a href="#" class="btn btn--primary">Download Resume (PDF)</a>
+          <a href="Images/resume.pdf" download class="btn btn--primary">
+            Download Resume (PDF)
+          </a>
+
             <a href="#projects" class="btn btn--quiet">View Highlights</a>
           </div>
 
@@ -1187,10 +1257,7 @@
             </ul>
             <div class="quote-box fade-in-up">
               <div class="quote-text">
-                "Aarnav has shown great enthusiasm for learning and a strong
-                commitment to improving his mathematical skills. His proactive
-                approach to seeking help and his dedication to mastering concepts
-                are commendable."
+                INSERT QUOTE
               </div>
               <div class="quote-author">Prof. Vinay Kodipelly</div>
               <div class="quote-role">
@@ -1428,6 +1495,10 @@
       </div>
     </section>
 
+    <!-- LEADERSHIP CAROUSEL -->
+    <section class="chalky-section">
+    <section id="leadership" class="section section--bg-card">
+      <div class="carousel-fullwidth-container">
     <!-- LEADERSHIP & SERVICE -->
     <section id="leadership" class="section section--bg-card">
       <div class="container">
@@ -1438,45 +1509,25 @@
             Ways I support others, take initiative, and participate in the learning community.
           </p>
         </div>
-
-        <div class="grid-2">
-          <article class="card fade-in-up">
-            <h3>Roles & Activities</h3>
-            <div class="timeline">
-              <!-- STUDENT: add or edit timeline items -->
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-title">Peer Math Helper</div>
-                <div class="timeline-meta">2025 · Active Learning Institute sessions</div>
-                <div class="timeline-body">
-                  Assisted peers in factorisation, equations, and function graph
-                  questions during group work, focusing on explaining steps
-                  clearly.
-                </div>
-              </div>
-
-              <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-title">School / Library Programs</div>
-                <div class="timeline-meta">School or Local Library · Ongoing</div>
-                <div class="timeline-body">
-                  Participated in school or library activities related to math,
-                  STEM, or reading. (Update this with your specific examples.)
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <aside class="card fade-in-up">
-            <h3>What Im Learning About Leadership</h3>
-            <ul class="list">
-              <li>Encouraging others to show their full work, not just answers.</li>
-              <li>Asking guiding questions instead of giving direct solutions.</li>
-              <li>Staying calm and organised when there is time pressure.</li>
-            </ul>
-          </aside>
+        <div class="carousel-fullwidth">
+          <div class="carousel-slide fade-in-up">
+            <h3>Volunteer Work</h3>
+            <p>Completed 300+ hours of volunteer work, contributing to community projects and STEM outreach events at librairies and schools.</p>
+          </div>
+           <div class="carousel-slide fade-in-up">
+            <h2>Tennis</h2>
+            <p>Avid tennis player with a peak UTR of 3.7 before injury; participated in and helped run many local tournaments.</p>
+          </div>
+          <div class="carousel-slide fade-in-up">
+            <h3>Middle School Math Tutoring</h3>
+            <p>Ran a math tutoring program in middle school, helping peers strengthen algebra and geometry skills.</p>
+          </div>
         </div>
+
+        <button class="carousel-prev" aria-label="Previous Slide">‹</button>
+        <button class="carousel-next" aria-label="Next Slide">›</button>
       </div>
+    </section>
     </section>
 
     <!-- NOTES / LEARNING ARTIFACTS -->
@@ -1887,6 +1938,29 @@
                   });
                 });
               </script>
+
+              <script>
+              const carousel = document.querySelector('.carousel-fullwidth');
+              const slides = document.querySelectorAll('.carousel-slide');
+              const prevBtn = document.querySelector('.carousel-prev');
+              const nextBtn = document.querySelector('.carousel-next');
+
+              let index = 0;
+
+              function showSlide(i) {
+                if(i < 0) index = slides.length - 1;
+                else if(i >= slides.length) index = 0;
+                else index = i;
+                carousel.style.transform = `translateX(-${index * 100}%)`;
+              }
+
+              prevBtn.addEventListener('click', () => showSlide(index - 1));
+              nextBtn.addEventListener('click', () => showSlide(index + 1));
+
+              // Optional: auto-slide every 6 seconds
+              setInterval(() => showSlide(index + 1), 6000);
+              </script>
+
 
 </body>
 </html>
