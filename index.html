@@ -1,271 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--
-  Student portfolio template authored by Prof. Vinay Kanth Rao Kodipelly
-  for the Active Learning Institute (ActiveSTEM.org).
-  This HTML template is provided under the MIT License for students
-  who build their academic portfolios on GitHub Pages or similar platforms.
--->
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Aarnav Baddam— Academic Portfolio | Active Learning Institute</title>
+    <title>Aarnav Baddam— Academic Portfolio</title>
 
-    <!-- Basic SEO -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='32' fill='%230F172A'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' fill='%23FFFFFF' font-family='system-ui, sans-serif' font-weight='700' font-size='36'>AB</text></svg>" type="image/svg+xml">
+
     <meta name="description"
-        content="Academic and STEM portfolio for Aarnav Baddam, a 9th student coached by the Active Learning Institute (ActiveSTEM.org), showcasing coursework, projects, events, and leadership." />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Aarnav Baddam — Academic Portfolio" />
-    <meta property="og:description"
-        content="Academic portfolio showcasing mathematics coursework, STEM projects, and leadership. Coached by the Active Learning Institute." />
-    <meta property="og:image" content="images/social-preview.jpg" />
-    <meta property="og:url" content="https://username.github.io/portfolio/" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <!-- Template credit & license -->
-    <meta name="author"
-        content="Aarnav Baddam (student); template by Prof. Vinay Kanth Rao Kodipelly, Active Learning Institute (ActiveSTEM.org)" />
-    <meta name="license" content="MIT License" />
+        content="Academic and STEM portfolio for Aarnav Baddam, showcasing coursework, projects, events, and leadership." />
 
-    <!-- Canonical (STUDENT: update to your GitHub Pages URL) -->
-    <link rel="canonical" href="https://username.github.io/portfolio/" />
-
-    <!-- Fonts (brand kit) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Poppins:wght@700;800;900&display=swap"
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
 
     <style>
         /* =========================================================
-       SECTION 1: DESIGN TOKENS (CSS VARIABLES)
-       (From Active Learning Institute brand kit)
+       SECTION 1: DESIGN TOKENS
        ========================================================= */
 
-        /* Full-width carousel */
-        .carousel-fullwidth-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 100%;
-            margin: 0;
-            padding: 40px 0;
-            /* keep padding inside slides only */
-            background: inherit;
-            /* match section background */
-        }
-
-
-
-        .carousel-fullwidth {
-            display: flex;
-            transition: transform 0.4s ease;
-        }
-
-        .carousel-slide {
-            flex: 0 0 100%;
-            padding: 40px 60px;
-            text-align: center;
-            box-sizing: border-box;
-        }
-
-        .carousel-slide h3 {
-            font-size: 1.6rem;
-            color: var(--navy);
-            margin-bottom: 12px;
-        }
-
-        .carousel-slide p {
-            font-size: 1rem;
-            color: var(--muted);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        /* Carousel buttons */
-        .carousel-prev,
-        .carousel-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            color: var(--green);
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .carousel-prev {
-            left: 20px;
-        }
-
-        .carousel-next {
-            right: 20px;
-        }
-
-        .carousel-prev:hover,
-        .carousel-next:hover {
-            background: var(--green);
-            color: #fff;
-        }
-
-
-        .typing {
-            font-weight: 700;
-            color: var(--navy);
-            border-right: 2px solid var(--navy);
-            padding-right: 4px;
-            white-space: nowrap;
-        }
-
-
         :root {
-            /* Core identity */
-            --navy: #1F2933;
-            /* Graphite (used everywhere navy was) */
-            --green: #0EA5E9;
-            /* Ice Blue (primary accent) */
-            --gold: #22D3EE;
-            /* Signal Cyan (CTAs & highlights) */
+            /* Core identity - Navy & Gold */
+            --navy: #0F172A;
+            /* Deepest Navy for Text/Headings */
+            --brand: #1E3A8A;
+            /* Rich Navy for Buttons/Links */
+            --gold: #F59E0B;
+            /* Brighter Golden-Yellow */
+            --gold-light: #FFF7ED;
+            /* Very light gold background */
 
-            --container: 1200px;
-
+            --container: 1140px;
 
             /* Text */
-            --ink: #0B1220;
-            /* Near-black, very crisp */
-            --muted: #4B5563;
-            /* Cool gray */
+            --ink: #0F172A;
+            --muted: #475569;
 
             /* Surfaces */
             --bg: #F8FAFC;
-            /* Clean, neutral background */
-            --card: #FFFFFF;
-            --border: #E5E7EB;
-
-            /* Supporting accents */
-            --teal-dark: #0284C7;
-            /* Deeper blue for hover states */
-            --teal-light: #E0F2FE;
-            /* Light blue surface fills */
-
-            /* Stat backgrounds (subtle only) */
-            --stat-bg-1: #ECFEFF;
-            /* Cyan mist */
-            --stat-bg-2: #EFF6FF;
-            /* Ice blue */
-            --stat-bg-3: #F1F5F9;
-            /* Slate */
-            --stat-bg-4: #E0F2FE;
-            /* Light sky */
-            --stat-bg-5: #F0FDFA;
-            /* Mint hint */
+            /* Very light cool grey/white */
+            --white: #FFFFFF;
+            --border: #CBD5E1;
 
             /* Typography */
-            --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            --font-heading: "Poppins", system-ui, sans-serif;
+            --font-heading: "Clash Display", sans-serif;
+            --font-body: "Inter", sans-serif;
 
             /* Radii */
-            --r-8: 8px;
-            --r-10: 10px;
-            --r-14: 14px;
+            --r-8: 4px;
             --r-pill: 999px;
 
-            /* Shadows (clean, modern) */
-            --shadow-1: 0 1px 3px rgba(15, 23, 42, 0.06);
-            --shadow-2: 0 6px 14px rgba(15, 23, 42, 0.08);
-            --shadow-3: 0 14px 30px rgba(15, 23, 42, 0.12);
+            /* Shadows */
+            --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.05);
+            --shadow-2: 0 4px 12px rgba(15, 23, 42, 0.08);
         }
 
         /* =========================================================
-       SECTION 2: BASE STYLES & ACCESSIBILITY
+       SECTION 2: BASE STYLES
        ========================================================= */
-
-        .accordion {
-            border-radius: 16px;
-            overflow: hidden;
-            background: var(--card);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            margin-bottom: 40px;
-            /* adjust if needed */
-        }
-
-        .accordion-header {
-            width: 100%;
-            background: var(--card);
-            border: none;
-            padding: 18px 22px;
-            font-size: 1.25rem;
-            font-weight: 700;
-            text-align: left;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .accordion-header.highlight {
-            background: var(--card);
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease;
-        }
-
-        .accordion-inner {
-            padding: 14px 22px 20px;
-        }
-
-        .list {
-            margin: 0;
-            padding-left: 18px;
-        }
-
-        .list li {
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
-
-        .icon {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .accordion-header.active .icon {
-            transform: rotate(45deg);
-        }
-
-
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation: none !important;
-                transition: none !important;
-                scroll-behavior: auto !important;
-            }
-        }
-
-        :focus-visible {
-            outline: 3px solid var(--green);
-            outline-offset: 2px;
-            border-radius: 6px;
-        }
 
         * {
             box-sizing: border-box;
         }
 
-        html,
-        body {
-            height: 100%;
+        html {
+            scroll-behavior: smooth;
+            /* FIX: Ensure anchor links don't get hidden behind the fixed header */
+            scroll-padding-top: 100px;
         }
 
         body {
@@ -273,38 +77,44 @@
             background: var(--bg);
             color: var(--muted);
             font: 400 1rem/1.6 var(--font-body);
+            padding-top: 80px;
         }
 
         h1,
         h2,
-        h3 {
-            margin: 0.25em 0 0.4em;
+        h3,
+        h4 {
+            margin: 0 0 0.5em;
             font-family: var(--font-heading);
             color: var(--navy);
+            letter-spacing: 0.02em;
         }
 
         h1 {
-            font-size: clamp(2rem, 3vw + 1rem, 3.25rem);
-            font-weight: 800;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.02em;
         }
 
         h2 {
-            font-size: clamp(1.6rem, 1.2vw + 1rem, 2rem);
-            font-weight: 800;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 600;
         }
 
         h3 {
-            font-size: 1.15rem;
-            font-weight: 800;
+            font-size: 1.25rem;
+            font-weight: 600;
         }
 
         a {
-            color: var(--navy);
+            color: var(--brand);
             text-decoration: none;
+            transition: color 0.2s;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: var(--gold);
         }
 
         img {
@@ -313,627 +123,382 @@
             display: block;
         }
 
-        .skip {
-            position: absolute;
-            left: -9999px;
-            top: auto;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
-
-        .skip:focus {
-            left: 16px;
-            top: 12px;
-            width: auto;
-            height: auto;
-            background: #fff;
-            color: var(--navy);
-            padding: 8px 12px;
-            border-radius: 8px;
-            box-shadow: var(--shadow-2);
-            z-index: 100;
-        }
-
-        /* =========================================================
-       SECTION 3: LAYOUT & UTILITIES
-       ========================================================= */
-
         .container {
             max-width: var(--container);
             margin-inline: auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         .section {
-            padding: 48px 0;
-            content-visibility: auto;
-            contain-intrinsic-size: 1px 900px;
+            padding: 60px 0;
         }
 
-        .section--bg-card {
-            background: var(--card);
+        .section--white {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
-        .surface {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--r-14);
-            box-shadow: var(--shadow-2);
-        }
-
-        .grid-3 {
-            display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .grid-2 {
-            display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .split {
-            display: grid;
-            gap: 24px;
-            grid-template-columns: 360px 1fr;
-        }
-
-        @media (max-width: 900px) {
-            .grid-3 {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 1000px) {
-            .split {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 640px) {
-
-            .grid-3,
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
-
-        .row--tight {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin: 0 0 8px;
-        }
-
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-
-        .fade-in-up.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .fade-in-up.is-visible .stat-card {
-            transition-delay: calc(var(--child-index) * 100ms);
+        .section--off-white {
+            background: var(--bg);
         }
 
         /* =========================================================
-       SECTION 4: UI COMPONENTS
+       SECTION 3: HEADER (FIXED TOP)
        ========================================================= */
 
-        /* ==========================
-      Floating translucent header
-      ========================== */
-        /* ==========================
-       Floating translucent header
-       ========================== */
         .site-header {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
-            z-index: 1000;
-            background: rgba(232, 230, 225, 0.95);
-            /* Fossil Stone transparent */
-            backdrop-filter: blur(16px);
-            padding: 20px 48px;
-            box-shadow: var(--shadow-3);
             width: 100%;
-            transition: all 0.3s ease;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 16px 0;
         }
-
-        /* Push content down so it doesn’t get covered */
-        body {
-            /* padding-top: 100px;  <-- REMOVED to let hero go to top */
-        }
-
-        /* Nav links container */
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            position: relative;
-            justify-content: center;
-        }
-
-        /* Circular / oval slider indicator */
-        .nav-slider {
-            position: absolute;
-            bottom: -2px;
-            width: 80px;
-            height: 4px;
-            border-radius: 999px;
-            background: var(--green);
-            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            pointer-events: none;
-            /* doesn’t block clicks */
-        }
-
-        /* Nav links styling */
-        .nav-links a {
-            padding: 10px 16px;
-            font-weight: 700;
-            font-size: 1rem;
-            position: relative;
-        }
-
-
-
-
 
         .nav {
             display: flex;
             align-items: center;
-            padding-left: 34px;
-            padding-right: 34px;
-            min-height: 44px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            border-radius: 26px;
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .brand:hover {
-            background: rgba(248, 249, 255, 0.8);
-            box-shadow: 0 3px 10px rgba(26, 35, 126, 0.05);
-            transform: translateY(-1px);
+            justify-content: space-between;
         }
 
         .brand-title {
             display: flex;
             flex-direction: column;
-            line-height: 1.05;
-            gap: 1px;
+            line-height: 1.1;
         }
 
         .brand-title .t1 {
-            font: 800 1.25rem var(--font-heading);
+            font: 600 1.2rem var(--font-heading);
             color: var(--navy);
-            letter-spacing: -0.01em;
         }
 
         .brand-title .t2 {
-            font: 700 0.85rem var(--font-body);
-            color: var(--navy);
-            opacity: 0.95;
-        }
-
-        .brand-title .t3 {
-            font: 700 0.7rem var(--font-body);
-            color: var(--green);
-            letter-spacing: 0.03em;
+            font: 500 0.75rem var(--font-body);
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .nav-links {
-            margin-left: auto;
             display: flex;
-            gap: 1px;
+            gap: 32px;
             align-items: center;
         }
 
         .nav-links a {
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 700;
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--navy);
         }
 
         .nav-links a:hover {
-            background: rgba(76, 175, 80, 0.08);
-            color: var(--green);
+            color: var(--gold);
         }
 
         .menu-toggle {
             display: none;
-            background: transparent;
-            border: 0;
-            color: var(--navy);
-            padding: 4px;
+            background: none;
+            border: none;
             cursor: pointer;
-            line-height: 1;
-            margin-left: auto;
+            color: var(--navy);
+            padding: 0;
+            z-index: 1001;
         }
 
+        /* MOBILE NAV */
         @media (max-width: 768px) {
-            .site-header {
-                width: 100%;
-                left: 0;
-                top: 0 !important;
-                transform: none;
-                padding: 12px 24px;
-            }
-
-
-
-            .nav-links {
-                display: none;
-                position: fixed;
-                left: 0;
-                right: 0;
-                top: 0;
-                height: 100vh;
-                background: #ffffff;
-                padding-top: 90px;
-                flex-direction: column;
-                align-items: center;
-                gap: 24px;
-                z-index: -1;
-                /* Sit behind the header bar */
-                box-shadow: none;
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .nav-links a {
-                padding: 12px 24px;
-                font-size: 1.25rem;
-                width: 100%;
-                text-align: center;
-                border: none;
-            }
-
-            .nav-links .btn {
-                width: 100%;
-                border-radius: 0;
-                justify-content: center;
-                background: var(--green);
-                /* Ensure blue background */
-                color: #ffffff;
-                box-shadow: none;
-            }
-
             .menu-toggle {
                 display: block;
             }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transform: translateX(100%);
+                transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .nav-links.show {
+                transform: translateX(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+
+            .nav-links a {
+                font-family: var(--font-heading);
+                font-size: 2rem;
+                font-weight: 600;
+            }
         }
 
-        /* Buttons */
+        /* =========================================================
+       SECTION 4: COMPONENTS
+       ========================================================= */
+
         .btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 18px;
-            border-radius: 999px;
-            font: 700 0.9rem var(--font-body);
+            padding: 12px 24px;
+            border-radius: var(--r-pill);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            cursor: pointer;
             border: 1px solid transparent;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Primary Button: Navy Blue background, White text */
         .btn--primary {
-            background: var(--gold);
-            color: #1f2933;
-            box-shadow: var(--shadow-1);
+            background: var(--brand);
+            color: #fff !important;
+            /* Force white text */
         }
 
         .btn--primary:hover {
-            filter: brightness(0.96);
-            transform: scale(1.02);
-            box-shadow: inset 0 0 0 3px var(--green);
+            background: var(--navy);
+            transform: translateY(-2px);
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
         }
 
+        /* Secondary Button: White with Navy Border */
         .btn--secondary {
-            background: var(--green);
-            color: #ffffff;
-            padding: 10px 20px;
+            background: #ffffff;
+            border: 2px solid var(--brand);
+            color: var(--brand);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
-        .btn--quiet {
-            background: transparent;
-            color: var(--navy);
-            border-color: var(--navy);
+        .btn--secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .btn--quiet:hover {
-            background: #f3f6ff;
-            transform: scale(1.02);
-            box-shadow: inset 0 0 0 3px var(--green);
-        }
-
-
-        /* Chips / Pills */
-        .chip {
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 12px;
-            border-radius: 999px;
-            font: 600 0.8rem var(--font-body);
+        .card,
+        .project-card,
+        .resource-card {
+            background: var(--white);
             border: 1px solid var(--border);
-            background: #f8faff;
-            color: var(--navy);
+            border-radius: var(--r-8);
+            padding: 32px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
-        .chip[data-variant="grade"] {
-            background: #EFF6FF;
-            border-color: #DBEAFE;
-        }
-
-        .chip[data-variant="tag"] {
-            background: #E8F5E9;
-            border-color: #C8E6C9;
-            color: #1B5E20;
-        }
-
-
-        /* Lists */
-        .list {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-        }
-
-        .list li {
-            position: relative;
-            padding-left: 18px;
-            margin: 0.35rem 0;
-        }
-
-        .list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--green);
-            font-weight: 900;
-        }
-
-        /* Cards */
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--r-10);
-            padding: 16px;
-            box-shadow: var(--shadow-1);
-            transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .card:hover {
+        /* Hover: Gold Glow */
+        .card:hover,
+        .project-card:hover,
+        .resource-card:hover {
+            transform: translateY(-5px);
             box-shadow: var(--shadow-2);
+            border-color: var(--gold);
         }
 
-        .card:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-3), inset 0 0 0 3px var(--green);
-            border-color: var(--green);
-        }
-
-        /* Stats grid (if needed later) */
-        .stats-grid {
+        /* General Grid (Reading & Projects use this) */
+        .grid-2 {
             display: grid;
-            gap: 20px;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: stretch;
+            /* Default: stretch to same height */
         }
 
-        .stat-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: var(--s-16);
-            border-radius: var(--r-10);
+        /* Specialized Grid for About Section (Bottom Alignment) */
+        .grid-about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            /* FIX: Aligns "At a Glance" to the bottom of the "Highlights" accordion */
+            align-items: end;
         }
 
-        .stat-card:nth-child(1) {
-            background: var(--stat-bg-1);
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
 
-        .stat-card:nth-child(2) {
-            background: var(--stat-bg-2);
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
 
-        .stat-card:nth-child(3) {
-            background: var(--stat-bg-3);
-        }
+        @media (max-width: 768px) {
 
-        .stat-card:nth-child(4) {
-            background: var(--stat-bg-4);
-        }
-
-        .stat-card:nth-child(5) {
-            background: var(--stat-bg-5);
-        }
-
-        .stat-card__text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-card__value {
-            font: 800 1.4rem var(--font-heading);
-            color: var(--navy);
-            line-height: 1.2;
-        }
-
-        .stat-card__label {
-            font: 600 0.9rem var(--font-body);
-            color: var(--muted);
-            line-height: 1.4;
-        }
-
-        /* Hero section customized for student portfolio */
-        /* Hero section customized for student portfolio */
-        .hero {
-            position: relative;
-            overflow: hidden;
-            background: var(--bg);
-            padding: 140px 0 60px;
-            /* Increased top padding to clear fixed header */
-            border-bottom: 1px solid var(--border);
-        }
-
-        .hero .kicker {
-            font: 800 0.85rem var(--font-body);
-            color: var(--green);
-            letter-spacing: 0.09em;
-            text-transform: uppercase;
-        }
-
-        .hero p.lead {
-            max-width: 720px;
-            color: var(--muted);
-            font-size: 1.02rem;
-            margin: 0.4rem 0 0;
-        }
-
-        .hero-avatar {
-            width: 167px;
-            height: 167px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.9);
-            box-shadow: var(--shadow-2);
-            box-shadow: var(--shadow-2);
-            margin-bottom: 12px;
-            margin-inline: auto;
-            margin-top: 14px;
-        }
-
-        .hero-layout {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            max-width: 800px;
-            margin-inline: auto;
-        }
-
-        @media (max-width: 900px) {
-            .hero-layout {
+            .grid-2,
+            .grid-about {
                 grid-template-columns: 1fr;
             }
         }
 
+        /* =========================================================
+       SECTION 5: SPECIFIC SECTIONS
+       ========================================================= */
+
+        /* Hero */
+        .hero {
+            position: relative;
+            padding: 80px 0 80px;
+            text-align: center;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        .hero-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 24px;
+            border: 1px solid var(--border);
+            padding: 4px;
+            background: #fff;
+        }
+
+        /* Kicker: Golden Yellow */
+        .kicker {
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .lead {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 32px;
+            color: var(--muted);
+        }
+
         .hero-meta-grid {
-            display: grid;
-            gap: 10px;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            margin-top: 18px;
+            display: flex;
             justify-content: center;
-            width: 100%;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 40px;
         }
 
         .hero-meta-card {
-            background: var(--card);
-            border-radius: var(--r-8);
+            background: #fff;
             border: 1px solid var(--border);
-            padding: 10px 12px;
+            padding: 12px 20px;
+            border-radius: var(--r-8);
+            text-align: left;
+            min-width: 180px;
         }
 
         .hero-meta-label {
-            font-size: 0.78rem;
-            font-weight: 600;
+            font-size: 0.75rem;
             text-transform: uppercase;
             color: var(--muted);
-            letter-spacing: 0.05em;
+            font-weight: 600;
         }
 
         .hero-meta-value {
-            font-size: 0.95rem;
-            color: var(--ink);
-            margin-top: 2px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-top: 4px;
         }
 
-        /* Section headings */
-        .section-header {
-            margin-bottom: 18px;
+        .hero-link-card {
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .section-header .kicker {
-            font: 800 0.78rem var(--font-body);
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--green);
-            margin-bottom: 14px;
+        .hero-link-card:hover {
+            background: var(--gold-light);
+            border-color: var(--gold);
+            transform: translateY(-2px);
         }
 
-        .section-header p {
-            margin: 4px 0 0;
-            font-size: 0.95rem;
-            color: var(--muted);
+        /* Accordion */
+        .accordion-header {
+            width: 100%;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--r-8);
+            padding: 16px 24px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: all 0.2s;
         }
 
-        /* Timeline for growth & leadership */
-        .timeline {
-            border-left: 2px solid var(--border);
-            padding-left: 16px;
-            margin: 8px 0 0;
+        .accordion-header:hover {
+            border-color: var(--gold);
         }
 
-        .timeline-item {
-            position: relative;
-            padding-left: 4px;
-            margin-bottom: 14px;
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 24px;
+            background: #fff;
+            border-left: 1px solid var(--border);
+            border-right: 1px solid var(--border);
+            margin-top: -8px;
+            margin-bottom: 8px;
         }
 
-        .timeline-dot {
-            position: absolute;
-            left: -21px;
-            top: 4px;
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 0 3px rgba(56, 142, 60, 0.18);
+        .accordion-content.open {
+            padding-bottom: 16px;
+            padding-top: 16px;
+            border-bottom: 1px solid var(--border);
+            border-radius: 0 0 var(--r-8) var(--r-8);
         }
 
-        .timeline-title {
+        /* Resource Card */
+        .resource-card {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .resource-icon {
+            width: 70px;
+            flex-shrink: 0;
+            background: #f1f5f9;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* Project Badge: Low Opacity Navy Background, Gold Text */
+        .project-badge {
+            background: rgba(30, 58, 138, 0.1);
+            /* Light Navy Opacity */
+            color: var(--gold);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.75rem;
             font-weight: 700;
-            font-size: 0.98rem;
-            color: var(--ink);
-        }
-
-        .timeline-meta {
-            font-size: 0.82rem;
-            color: var(--muted);
-        }
-
-        .timeline-body {
-            font-size: 0.9rem;
-            color: var(--muted);
-            margin-top: 3px;
-        }
-
-        /* Table (exams & coursework) */
-        .table-wrapper {
-            margin-top: 8px;
-            overflow-x: auto;
+            float: right;
         }
 
         table {
@@ -944,1251 +509,613 @@
 
         th,
         td {
-            padding: 6px 8px;
+            padding: 12px;
             text-align: left;
             border-bottom: 1px solid var(--border);
         }
 
         th {
-            font-weight: 700;
-            color: var(--muted);
-            background: rgba(0, 0, 0, 0.03);
-        }
-
-        tbody tr:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Project / event cards */
-        .projects-grid {
-            display: grid;
-            gap: 18px;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        }
-
-        .project-card {
-            border-radius: var(--r-10);
-            border: 1px solid var(--border);
-            background: var(--card);
-            box-shadow: var(--shadow-2);
-            padding: 14px 14px 12px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .project-card:hover {
-            transform: scale(1.02);
-            border-color: var(--green);
-            box-shadow: var(--shadow-3), inset 0 0 0 3px var(--green);
-        }
-
-        .project-header-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            align-items: baseline;
-        }
-
-        .project-title {
-            font-size: 1rem;
-            font-weight: 800;
-            color: var(--ink);
-            margin: 0 0 2px;
-        }
-
-        .project-badge {
-            font-size: 0.75rem;
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: rgba(0, 0, 0, 0.05);
-            color: var(--green);
-            font-weight: 700;
-            white-space: nowrap;
-        }
-
-        .project-meta {
-            font-size: 0.8rem;
-            color: #64748b;
-            margin-bottom: 4px;
-        }
-
-        .project-body {
-            font-size: 0.9rem;
-            color: var(--muted);
-        }
-
-        .project-footer {
-            margin-top: 8px;
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            align-items: center;
-            font-size: 0.8rem;
-            color: #64748b;
-        }
-
-        /* Footer (brand kit) */
-        .site-footer {
-            background: linear-gradient(135deg, var(--navy) 0%, #2b338f 100%);
-            color: #fff;
-            padding: 32px 0 26px;
-            border-top: 4px solid var(--green);
-            margin-top: 40px;
-        }
-
-        .site-footer a {
-            color: #fff;
-            text-decoration: underline;
-        }
-
-        .foot-grid {
-            display: grid;
-            gap: 20px;
-            grid-template-columns: 2fr 1fr 1fr;
-        }
-
-        @media (max-width: 900px) {
-            .foot-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* === NEW ADDITIONS: RESOURCES, ARTIFACTS & BRANDING === */
-
-        /* 1. Intellectual Vitality / Bookshelf */
-        .resource-card {
-            display: flex;
-            gap: 16px;
-            align-items: flex-start;
-            padding: 12px 14px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--r-10);
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
-            min-height: min(calc(100% + 30px), 140px);
-            /* takes the smaller of 100%+30px or 140px */
-        }
-
-        .resource-card:hover {
-            transform: scale(1.02);
-            border-color: var(--green);
-            text-decoration: none;
-            box-shadow: var(--shadow-3), inset 0 0 0 3px var(--green);
-        }
-
-        .resource-icon {
-            flex-shrink: 0;
-            width: 80px;
-            /* fixed width */
-            height: auto;
-            /* height adjusts automatically */
-            background: var(--stat-bg-2);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4px;
-        }
-
-        .resource-icon img {
-            width: 100%;
-            /* fills width */
-            height: auto;
-            /* height scales naturally */
-            border-radius: 8px;
-        }
-
-
-        /* 2. Visual Artifacts (Notes Gallery) */
-        .artifact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 16px;
-            margin-top: 16px;
-        }
-
-        .artifact-thumb {
-            aspect-ratio: 3/4;
-            background: var(--bg);
-            border-radius: var(--r-8);
-            overflow: hidden;
-            border: 1px solid var(--border);
-            position: relative;
-            transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            display: block;
-        }
-
-        .artifact-thumb:hover {
-            box-shadow: var(--shadow-3);
-        }
-
-        .artifact-thumb img {
-            width: 210%;
-            height: 210%;
-            object-fit: cover;
-            transition: transform 0.3s;
-        }
-
-        .artifact-thumb:hover img {
-            transform: scale(1.05);
-        }
-
-        .artifact-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(26, 35, 126, 0.9);
-            color: #fff;
-            padding: 8px;
-            font-size: 0.75rem;
             font-weight: 600;
-            text-align: center;
-        }
-
-        /* 3. Coach Endorsement Quote */
-        .quote-box {
-            background: var(--stat-bg-2);
-            border-left: 4px solid var(--navy);
-            padding: 20px;
-            border-radius: 0 var(--r-10) var(--r-10) 0;
-            margin-top: 24px;
-        }
-
-        .quote-text {
-            font-style: italic;
-            color: var(--ink);
-            font-weight: 500;
-            margin-bottom: 12px;
-        }
-
-        .quote-author {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--navy);
-        }
-
-        .quote-role {
-            font-size: 0.75rem;
             color: var(--muted);
         }
 
-        /* 4. Clickable Brand Badge (Hero) */
-        .hero-link-card {
-            text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-        }
-
-        .hero-link-card:hover {
-            background: #f0fdf4;
-            border-color: var(--green);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-1);
-        }
-
-        .hero-link-card:hover .hero-meta-value {
-            text-decoration: underline;
-            color: var(--green);
-        }
-
-        /* Gears Animation */
+        /* Gears Animation - Navy Fill */
         .hero-bg-animation {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
-            overflow: hidden;
+            z-index: 0;
+            opacity: 0.08;
             pointer-events: none;
+            overflow: hidden;
         }
 
         .gear {
             position: absolute;
             fill: var(--navy);
-            opacity: 0.1;
         }
 
-        /* Gear Cluster Positioning */
-        /* Main large driver - massive and going off-screen */
-        /* Main large driver - massive and going off-screen to the top-left */
         .gear-1 {
-            top: -220px;
-            left: -220px;
-            width: 550px;
-            height: 550px;
-            animation: spin-cw 80s linear infinite;
+            top: -120px;
+            left: -100px;
+            width: 450px;
+            animation: spin 80s linear infinite;
         }
 
-        /* Connected to gear-1 (bottom) */
         .gear-2 {
-            top: 250px;
-            left: -10px;
-            width: 220px;
-            height: 220px;
-            animation: spin-ccw 36s linear infinite;
+            top: 60%;
+            right: -80px;
+            width: 300px;
+            animation: spin-rev 60s linear infinite;
         }
 
-        /* Connected to gear-1 (right) */
         .gear-3 {
-            top: -50px;
-            left: 260px;
+            bottom: -50px;
+            left: 10%;
             width: 200px;
-            height: 200px;
-            animation: spin-ccw 32s linear infinite;
+            animation: spin 50s linear infinite;
         }
 
-        /* Connected to gear-2 */
         .gear-4 {
-            top: 380px;
-            left: 170px;
-            width: 140px;
-            height: 140px;
-            animation: spin-cw 24s linear infinite;
+            top: 10%;
+            right: 15%;
+            width: 150px;
+            animation: spin 40s linear infinite;
         }
 
-        /* Connected to gear-3 */
         .gear-5 {
-            top: 110px;
-            left: 360px;
-            width: 120px;
-            height: 120px;
-            animation: spin-cw 20s linear infinite;
+            top: 40%;
+            left: 35%;
+            width: 100px;
+            opacity: 0.5;
+            animation: spin 30s linear infinite;
         }
 
-        /* Bottom right decorative - massive off-screen */
         .gear-6 {
-            bottom: -180px;
-            right: -180px;
-            width: 500px;
-            height: 500px;
-            animation: spin-cw 80s linear infinite;
+            bottom: 20%;
+            right: 40%;
+            width: 80px;
+            opacity: 0.5;
+            animation: spin-rev 25s linear infinite;
         }
 
-        @keyframes spin-cw {
-            from {
-                transform: rotate(0deg);
-            }
+        .gear-7 {
+            top: 15%;
+            left: 20%;
+            width: 120px;
+            opacity: 0.4;
+            animation: spin 45s linear infinite;
+        }
 
+        @keyframes spin {
             to {
                 transform: rotate(360deg);
             }
         }
 
-        @keyframes spin-ccw {
-            from {
-                transform: rotate(0deg);
-            }
-
+        @keyframes spin-rev {
             to {
                 transform: rotate(-360deg);
             }
         }
-    </style>
 
-    <!-- Structured data (STUDENT: update name and URL) -->
-    <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Aarnav Baddam",
-    "description": "A High school student building a math and STEM portfolio with the Active Learning Institute (ActiveSTEM.org).",
-    "url": "https://username.github.io/portfolio/",
-    "affiliation": {
-      "@type": "Organization",
-      "name": "Active Learning Institute",
-      "url": "https://activestem.org"
-    }
-  }
-  </script>
+        /* Carousel */
+        .carousel-fullwidth-container {
+            position: relative;
+            overflow: hidden;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--r-8);
+        }
+
+        .carousel-fullwidth {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .carousel-prev,
+        .carousel-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            border: 1px solid var(--border);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        /* Footer */
+        .site-footer {
+            background: linear-gradient(135deg, var(--navy) 0%, #020617 100%);
+            color: #fff;
+            padding: 60px 0;
+            margin-top: 0;
+        }
+
+        .foot-grid {
+            display: grid;
+            gap: 40px;
+            grid-template-columns: 2fr 1fr;
+        }
+
+        @media (max-width: 768px) {
+            .foot-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .site-footer h3 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+
+        .site-footer a {
+            color: #ccc;
+        }
+
+        .site-footer a:hover {
+            color: #fff;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .typing::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <a href="#main" class="skip">Skip to content</a>
 
-    <!-- HEADER (branded as Active Learning Institute) -->
-    <header class="site-header" role="banner">
+    <header class="site-header">
         <div class="container nav">
-            <a class="brand" href="#">
-                <span class="brand-title">
-                    <span class="t1">Aarnav Baddam</span>
-                    <span class="t2">Math &amp; STEM Portfolio</span>
-                </span>
+            <a href="#" class="brand-title">
+                <span class="t1">Aarnav Baddam</span>
+                <span class="t2">Math & STEM Portfolio</span>
             </a>
 
-            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false"
-                aria-controls="nav-links">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    style="pointer-events: none">
-                    <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 12h18M3 6h18M3 18h18" />
                 </svg>
             </button>
 
-            <nav id="nav-links" class="nav-links" aria-label="Primary">
+            <nav class="nav-links" id="nav-links">
                 <a href="#about">About</a>
                 <a href="#academics">Academics</a>
+                <a href="#inprogress">In Progress</a>
                 <a href="#projects">Projects</a>
-                <a href="#leadership">Leadership</a>
-                <a href="#contact" class="btn btn--secondary">Contact</a>
-
-                <!-- Slider indicator -->
-                <div class="nav-slider"></div>
+                <a href="#achievements">Achievements</a>
+                <a href="#contact" class="btn btn--primary">Contact</a>
             </nav>
-
         </div>
     </header>
 
-    <main id="main">
-        <!-- HERO: Student Name + quick meta -->
+    <main>
         <section class="hero">
             <div class="hero-bg-animation">
-                <!-- Improved Circular Cog Path -->
                 <svg class="gear gear-1" viewBox="0 0 24 24">
-                    <path
-                        d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
+                    <path d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
                 </svg>
-
                 <svg class="gear gear-2" viewBox="0 0 24 24">
-                    <path
-                        d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
+                    <path d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
                 </svg>
-
                 <svg class="gear gear-3" viewBox="0 0 24 24">
-                    <path
-                        d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
+                    <path d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
                 </svg>
-
                 <svg class="gear gear-4" viewBox="0 0 24 24">
-                    <path
-                        d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
+                    <path d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
                 </svg>
-
                 <svg class="gear gear-5" viewBox="0 0 24 24">
-                    <path
-                        d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
+                    <path d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
                 </svg>
-
                 <svg class="gear gear-6" viewBox="0 0 24 24">
-                    <path
-                        d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
+                    <path d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
+                </svg>
+                <svg class="gear gear-7" viewBox="0 0 24 24">
+                    <path d="M12,15.5c-1.93,0-3.5-1.57-3.5-3.5s1.57-3.5,3.5-3.5s3.5,1.57,3.5,3.5S13.93,15.5,12,15.5z M19.43,12.98 c0.04-0.32,0.07-0.64,0.07-0.98s-0.03-0.66-0.07-0.98l2.11-1.65c0.19-0.15,0.24-0.42,0.12-0.64l-2-3.46 c-0.12-0.22-0.39-0.3-0.61-0.22l-2.49,1c-0.52-0.4-1.08-0.73-1.69-0.98l-0.38-2.65C14.46,2.18,14.25,2,14,2h-4 c-0.25,0-0.46,0.18-0.49,0.42L9.13,5.07c-0.61,0.25-1.17,0.59-1.69,0.98l-2.49-1c-0.23-0.09-0.49,0-0.61,0.22l-2,3.46 c-0.13,0.22-0.07,0.49,0.12,0.64l2.11,1.65c-0.04,0.32-0.07,0.65-0.07,0.98s0.03,0.66,0.07,0.98l-2.11,1.65 c-0.19,0.15-0.24,0.42-0.12,0.64l2,3.46c0.12,0.22,0.39,0.3,0.61,0.22l2.49-1c0.52,0.4,1.08,0.73,1.69,0.98l0.38,2.65 C9.54,21.82,9.75,22,10,22h4c0.25,0,0.46-0.18,0.49-0.42l0.38-2.65c0.61-0.25,1.17-0.59,1.69-0.98l2.49,1 c0.23,0.09,0.49,0,0.61-0.22l2-3.46c0.13-0.22,0.07-0.49-0.12-0.64L19.43,12.98z" />
                 </svg>
             </div>
-            <div class="container hero-layout">
-                <div>
-                    <div class="kicker">Student Portfolio</div>
-                    <!-- STUDENT: Update the image file path to your own photo in this repo -->
-                    <img src="Images/IMG_1552.jpeg" alt="Portrait of Aarnav Baddam" class="hero-avatar" />
-                    <h1><!-- STUDENT: Your full name -->Aarnav Baddam</h1>
-                    <span class="typing" data-words='["Student. Developer. Engineer."]'></span>
-                    <p class="lead">
-                        <!-- STUDENT: 2–3 lines describing yourself -->
-                        High school student with a growing interest in mathematics, problem
-                        solving, and STEM. This portfolio is built under the guidance of the
-                        Active Learning Institute (ActiveSTEM.org) to track my coursework,
-                        projects, and long-term growth.
-                    </p>
 
-                    <div class="row" style="margin-top: 18px; justify-content: center;">
-                        <!-- STUDENT: Update resume link if you have one -->
-                        <a href="Images/resume.pdf" download class="btn btn--primary">
-                            Download Resume (PDF)
-                        </a>
+            <div class="container" style="position: relative; z-index: 2;">
+                <span class="kicker">Student Portfolio</span>
+                <img src="Images/IMG_1552.jpeg" alt="Aarnav Baddam" class="hero-avatar">
 
-                        <a href="#projects" class="btn btn--quiet">View Highlights</a>
-                    </div>
+                <h1>Aarnav Baddam</h1>
+                <span class="typing" data-words='["Student. Developer. Engineer."]'></span>
 
-                    <div class="hero-meta-grid">
-                        <div class="hero-meta-card">
-                            <div class="hero-meta-label">Grade & School</div>
-                            <div class="hero-meta-value">
-                                <!-- STUDENT: e.g. 10th Grade, Parkway South High School -->
-                                9th Grade, Parkway West High School
-                            </div>
-                        </div>
-                        <div class="hero-meta-card">
-                            <div class="hero-meta-label">Academic Focus</div>
-                            <div class="hero-meta-value">
-                                Algebra II · Geometry · ACT Math Readiness
-                            </div>
-                        </div>
-                        <a href="https://activestem.org" target="_blank" rel="noopener"
-                            class="hero-meta-card hero-link-card" title="View Program Details">
-                            <div class="hero-meta-label">Program &amp; Mentorship</div>
-                            <div class="hero-meta-value" style="color: var(--navy); font-weight: 700">
-                                ActiveSTEM Cohort ↗
-                            </div>
-                            <div style="font-size: 0.75rem; color: var(--muted); margin-top: 2px">
-                                Dir. Prof. Vinay Kodipelly
-                            </div>
-                        </a>
-                    </div>
+                <p class="lead">Engineering systems that bridge the gap between complex data and human intuition.</p>
+
+                <div style="margin-bottom: 32px;">
+                    <a href="Images/resume.pdf" class="btn btn--primary">Download Resume</a>
+                    <a href="#projects" class="btn btn--secondary" style="margin-left: 10px;">View Projects</a>
                 </div>
 
+                <div class="hero-meta-grid">
+                    <div class="hero-meta-card">
+                        <div class="hero-meta-label">Current Grade</div>
+                        <div class="hero-meta-value">9th Grade</div>
+                    </div>
+                    <div class="hero-meta-card">
+                        <div class="hero-meta-label">School</div>
+                        <div class="hero-meta-value">Parkway West High</div>
+                    </div>
+                    <a href="https://activestem.org" target="_blank" class="hero-meta-card hero-link-card">
+                        <div class="hero-meta-label">Program</div>
+                        <div class="hero-meta-value">ActiveSTEM Cohort ↗</div>
+                        <div style="font-size: 0.75rem; color: var(--muted); margin-top: 2px">Dir. Prof. Vinay
+                            Kodipelly</div>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- ABOUT -->
-        <section id="about" class="section">
+        <section id="about" class="section section--white">
             <div class="container">
-                <div class="section-header">
+                <div class="grid-about">
+                    <div style="display: flex; flex-direction: column; height: 100%;">
+                        <span class="kicker">About Me</span>
+                        <h2>Who I Am</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.8;">
+                            I am a 9th-grade student who enjoys mathematics, science, and technology.
+                            Through the Active Learning Institute, I am learning how to explain my work clearly,
+                            reflect on my mistakes, and build disciplined study habits.
+                        </p>
+                        <br>
+                        <div style="margin-top: auto;">
+                            <div class="accordion-header">Current Goals <span style="float:right">+</span></div>
+                            <div class="accordion-content">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Write full step-by-step solutions in algebra.</li>
+                                    <li>Build disciplined note-taking for school.</li>
+                                    <li>Prepare early for ACT/AP mathematics.</li>
+                                </ul>
+                            </div>
 
-                    <div class="accordion">
-
-                        <button class="accordion-header">
-                            Current Goals
-                            <span class="icon">×</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-inner">
-                                <ul class="list">
-                                    <li>Write full step-by-step solutions in algebra and functions.</li>
-                                    <li>Build disciplined note-taking for school and coaching sessions.</li>
-                                    <li>Prepare early for ACT / AP-level mathematics.</li>
+                            <div class="accordion-header">Highlights <span style="float:right">+</span></div>
+                            <div class="accordion-content">
+                                <ul style="padding-left: 20px; margin: 0;">
+                                    <li>Participated in ActiveSTEM Math Marathon.</li>
+                                    <li>Award-winning Math Tutor.</li>
+                                    <li>Building this GitHub portfolio from scratch.</li>
                                 </ul>
                             </div>
                         </div>
-
-                        <button class="accordion-header highlight">
-                            Quick Highlights
-                            <span class="icon">×</span>
-                        </button>
-                        <div class="accordion-content">
-                            <div class="accordion-inner">
-                                <ul class="list">
-                                    <li>Participated in an ActiveSTEM Math Marathon event.</li>
-                                    <li>Regularly works on problems beyond school textbook level.</li>
-                                    <li>Building this GitHub-based portfolio from scratch.</li>
-                                </ul>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <div class="kicker">About Me</div>
-                    <h2>Who I Am & What I'm Working Towards</h2>
-                    <p>
-                        <!-- STUDENT: short, honest context -->
-                        A brief introduction, your interests, and where you see yourself going.
-                    </p>
-                </div>
-
-                <div class="split">
-                    <article class="card fade-in-up">
-                        <h3>Short Bio</h3>
-                        <p>
-                            <!-- STUDENT: 1–2 paragraphs in your own words -->
-                            I am a 9th-grade student who enjoys mathematics, science, and
-                            technology. Through the Active Learning Institute, I am learning how
-                            to explain my work clearly, reflect on my mistakes, and not depend
-                            only on answer keys.
-                        </p>
-                        <p>
-                            I use this portfolio to track projects, events, mock exams, and
-                            selected notes so that I can look back at my progress and prepare
-                            strongly for future opportunities.
-                        </p>
-                    </article>
-
-                    <aside class="card fade-in-up">
-                        <h3>At a Glance</h3>
-                        <div class="row--tight" style="margin-bottom: 4px">
-                            <span class="chip" data-variant="grade">Grade: 9</span>
-                            <span class="chip" data-variant="tag">STEM Track</span>
-                        </div>
-                        <ul class="list">
-                            <li><strong>Interests:</strong> Mathematics, science, coding.</li>
-                            <li><strong>Planned Path:</strong> Engineering / Computer Science.</li>
-                            <li><strong>Strengths:</strong> Logical reasoning, pattern spotting.</li>
-                            <li><strong>Working On:</strong> Step-by-step writing, exam timing.</li>
-                        </ul>
-                        <div class="quote-box fade-in-up">
-                            <div class="quote-text">
-                                "Aarnav engages seriously with challenging material and has begun contributing original
-                                thinking during discussions. His work reflects both intellectual curiosity and a growing
-                                sense of mathematical responsibility"
+                    <div>
+                        <div class="card fade-in-up">
+                            <h3>At a Glance</h3>
+                            <div style="display: flex; gap: 8px; margin-bottom: 16px;">
+                                <span
+                                    style="background:var(--gold-light); color:var(--gold); padding:4px 12px; border-radius:99px; font-weight:700; font-size:0.8rem;">Grade
+                                    9</span>
+                                <span
+                                    style="background:#F0FDF4; color:#166534; padding:4px 12px; border-radius:99px; font-weight:700; font-size:0.8rem;">STEM
+                                    Track</span>
                             </div>
-                            <div class="quote-author">Prof. Vinay Kodipelly</div>
-                            <div class="quote-role">
-                                Active Learning Institute
+                            <ul style="padding-left: 20px; margin: 0; line-height: 1.6;">
+                                <li><strong>Interests:</strong> Coding, Engineering, Math.</li>
+                                <li><strong>Strengths:</strong> Logical reasoning, pattern spotting.</li>
+                            </ul>
+
+                            <div
+                                style="background: #F8FAFC; padding: 16px; border-left: 3px solid var(--brand); margin-top: 20px;">
+                                <em style="font-size: 0.9rem;">"Aarnav engages seriously with challenging material and
+                                    has begun contributing original thinking during discussions."</em>
+                                <div style="font-size: 0.8rem; font-weight: 700; margin-top: 8px;">— Prof. Vinay
+                                    Kodipelly</div>
                             </div>
                         </div>
-                    </aside>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ACADEMICS -->
-        <section id="academics" class="section section--bg-card">
+        <section id="academics" class="section section--off-white">
             <div class="container">
-                <div class="section-header">
-                    <div class="kicker">Academics</div>
-                    <h2>Courses & Skill Focus</h2>
-                    <p>
-                        Key math and STEM courses, plus what I am building through ActiveSTEM
-                        coaching.
-                    </p>
-                </div>
+                <span class="kicker">Academics</span>
+                <h2>Coursework & Progress</h2>
 
-                <div class="grid-2">
-                    <article class="card fade-in-up">
-                        <h3>Current & Recent Courses</h3>
-                        <div class="table-wrapper">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Course</th>
-                                        <th>Level</th>
-                                        <th>Institution</th>
-                                        <th>Notes</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- STUDENT: replace with your own entries -->
-                                    <tr>
-                                        <td>Honors Geometry</td>
-                                        <td>Honors</td>
-                                        <td>PWHS</td>
-                                        <td>Points, lines, angles, shapes.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Honors Biology</td>
-                                        <td>Honors</td>
-                                        <td>PWHS</td>
-                                        <td>Cells, genetics, evolution, ecology</td>
-                                    </tr>
-                                    <tr>
-                                        <td>AP Human Geography</td>
-                                        <td>AP Course</td>
-                                        <td>PWHS</td>
-                                        <td>Population, culture, cities, regions</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Algebra II</td>
-                                        <td>Coaching</td>
-                                        <td>Active Learning Institute</td>
-                                        <td>Functions, quadratics, exponentials.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </article>
-
-                    <aside class="card fade-in-up">
-                        <h3>Skill Focus</h3>
-                        <ul class="list">
-                            <li>Writing solutions fully, not jumping from question to answer.</li>
-                            <li>Solving problems in a timely manner.</li>
-                            <li>Being able to explain my reasoning and process clearly.</li>
-                            <li>Building summary sheets from my own class notes.</li>
-                        </ul>
-                    </aside>
+                <div class="card fade-in-up" style="margin-top: 24px;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Course</th>
+                                <th>Level</th>
+                                <th>Focus Areas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Honors Geometry</td>
+                                <td>Honors</td>
+                                <td>Points, lines, angles, logical proofs.</td>
+                            </tr>
+                            <tr>
+                                <td>Honors Biology</td>
+                                <td>Honors</td>
+                                <td>Genetics, evolution, ecology systems.</td>
+                            </tr>
+                            <tr>
+                                <td>Algebra II (Coaching)</td>
+                                <td>Advanced</td>
+                                <td>Functions, quadratics, exponentials.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
 
-        <section id="reading" class="section">
+        <section id="inprogress" class="section section--white">
             <div class="container">
-                <div class="section-header">
-                    <div class="kicker">Intellectual Vitality</div>
-                    <h2>Reading &amp; Self-Study</h2>
-                    <p>Books, papers, and resources I am exploring beyond the curriculum.</p>
+                <span class="kicker">Current Focus</span>
+                <h2>Work In Progress</h2>
+                <div class="grid-3" style="margin-top: 32px;">
+                    <div class="card fade-in-up">
+                        <h3>Research Paper</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 8px; color: var(--gold); font-weight: 600;">Aerodynamics</p>
+                        <p>Writing a comprehensive paper analyzing aerodynamic behaviors and fluid dynamics in automotive design.</p>
+                    </div>
+                    <div class="card fade-in-up">
+                        <h3>Volunteering</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 8px; color: var(--gold); font-weight: 600;">Kumon Math & Reading</p>
+                        <p>Actively volunteering to mentor younger students, strengthening my own core math foundations through teaching.</p>
+                    </div>
+                    <div class="card fade-in-up">
+                        <h3>Curriculum</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 8px; color: var(--gold); font-weight: 600;">Parallel Algebra II</p>
+                        <p>Self-studying Algebra II concepts parallel to my school curriculum to prepare for advanced contest math.</p>
+                    </div>
                 </div>
-                <div class="grid-2" style="margin-top:16px">
+            </div>
+        </section>
+
+        <section id="reading" class="section section--off-white">
+            <div class="container">
+                <span class="kicker">Intellectual Vitality</span>
+                <h2>Reading & Self-Study</h2>
+                <div class="grid-2" style="margin-top: 32px;">
                     <a href="#" class="resource-card fade-in-up">
                         <div class="resource-icon">
-                            <img src="Images/glhahh.jpeg" alt="Go Like Hell"
-                                style="width:100%; height:100%; border-radius:8px;">
+                            <img src="Images/glhahh.jpeg" alt="Book Cover">
                         </div>
                         <div>
-                            <h3 style="font-size: 1rem; margin: 0 0 4px">Go Like Hell</h3>
-                            <p style="font-size: 0.85rem; margin: 0; color: var(--muted)">
-                                Read to explore the real-life story of the Ford vs. Ferrari rivalry, gaining insight
-                                into high-performance engineering, teamwork, and innovation in motorsports.
-                            </p>
-                            <div style="margin-top:8px; font-size:0.75rem; color:var(--green); font-weight:700">
-                                Status: In Progress
-                            </div>
+                            <h3 style="margin: 0 0 4px; font-size: 1rem;">Go Like Hell</h3>
+                            <p style="font-size: 0.85rem; margin: 0;">The story of Ford vs Ferrari and engineering
+                                resilience.</p>
+                            <span
+                                style="display:block; margin-top:8px; font-size:0.75rem; font-weight:700; color:var(--brand);">In
+                                Progress</span>
                         </div>
                     </a>
-
                     <a href="#" class="resource-card fade-in-up">
                         <div class="resource-icon">
-                            <img src="Images/aefahh.jpeg" alt="Automotive Engineering Fundamentals"
-                                style="width:100%; height:100%; border-radius:8px;">
+                            <img src="Images/aefahh.jpeg" alt="Book Cover">
                         </div>
                         <div>
-                            <h3 style="font-size: 1rem; margin: 0 0 4px">Automotive Engineering Fundamentals</h3>
-                            <p style="font-size: 0.85rem; margin: 0; color: var(--muted)">
-                                Read to understand the core principles of car design, engine mechanics, and vehicle
-                                systems for practical engineering applications.
-                            </p>
-                            <div style="margin-top:8px; font-size:0.75rem; color:var(--green); font-weight:700">
-                                Status: In Progress
-                            </div>
+                            <h3 style="margin: 0 0 4px; font-size: 1rem;">Automotive Fundamentals</h3>
+                            <p style="font-size: 0.85rem; margin: 0;">Understanding car design and engine mechanics.</p>
+                            <span
+                                style="display:block; margin-top:8px; font-size:0.75rem; font-weight:700; color:var(--brand);">In
+                                Progress</span>
                         </div>
                     </a>
-
-
-                    <a href="#" class="resource-card fade-in-up" style="margin-top:16px">
+                    <a href="#" class="resource-card fade-in-up">
                         <div class="resource-icon">
-                            <img src="Images/oldahh.jpeg" alt="1984"
-                                style="width:100%; height:100%; border-radius:8px;">
+                            <img src="Images/pythonahh.jpeg" alt="Book Cover">
                         </div>
                         <div>
-                            <h3 style="font-size: 1rem; margin: 0 0 4px">1984</h3>
-                            <p style="font-size: 0.85rem; margin: 0; color: var(--muted)">
-                                Dystopian novel exploring totalitarianism, surveillance, and individual freedom.
-                            <div style="margin-top:8px; font-size:0.75rem; color:var(--green); font-weight:700">
-                                Status: In Progress
-                            </div>
+                            <h3 style="margin: 0 0 4px; font-size: 1rem;">Python For Dummies</h3>
+                            <p style="font-size: 0.85rem; margin: 0;">Basic programming syntax and logic.</p>
+                            <span
+                                style="display:block; margin-top:8px; font-size:0.75rem; font-weight:700; color:#16a34a;">Completed</span>
                         </div>
                     </a>
-
-                    <div class="grid-2" style="margin-top:16px">
-                        <a href="#" class="resource-card fade-in-up">
-                            <div class="resource-icon">
-                                <img src="Images/pythonahh.jpeg" alt="Python Book">
-                            </div>
-                            <div>
-                                <h3 style="font-size: 1rem; margin: 0 0 4px">Python For Dummies</h3>
-                                <p style="font-size: 0.85rem; margin: 0; color: var(--muted)">
-                                    Read to understand basic programming concepts and Python syntax.
-                                </p>
-                                <div style="margin-top:8px; font-size:0.75rem; color:var(--navy); font-weight:700">
-                                    Status: Completed
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#" class="resource-card fade-in-up">
-                            <div class="resource-icon">
-                                <img src="Images/tkamahh.jpeg" alt="To Kill a Mockingbird"
-                                    style="width:100%; height:100%; border-radius:8px;">
-                            </div>
-                            <div>
-                                <h3 style="font-size: 1rem; margin: 0 0 4px">To Kill a Mockingbird</h3>
-                                <p style="font-size: 0.85rem; margin: 0; color: var(--muted)">
-                                    Read to explore social justice, empathy, and moral growth through the eyes of a
-                                    young protagonist.
-                                </p>
-                                <div style="margin-top:8px; font-size:0.75rem; color:var(--navy); font-weight:700">
-                                    Status: Completed
-                                </div>
-                            </div>
-                        </a>
-
-
-                    </div>
+                    <a href="#" class="resource-card fade-in-up">
+                        <div class="resource-icon">
+                            <img src="Images/tkamahh.jpeg" alt="Book Cover">
+                        </div>
+                        <div>
+                            <h3 style="margin: 0 0 4px; font-size: 1rem;">To Kill a Mockingbird</h3>
+                            <p style="font-size: 0.85rem; margin: 0;">Exploring empathy and social justice.</p>
+                            <span
+                                style="display:block; margin-top:8px; font-size:0.75rem; font-weight:700; color:#16a34a;">Completed</span>
+                        </div>
+                    </a>
                 </div>
+            </div>
         </section>
 
-        <!-- PROJECTS & EVENTS -->
-        <section id="projects" class="section">
+        <section id="projects" class="section section--white">
             <div class="container">
-                <div class="section-header">
-                    <div class="kicker">Projects & Events</div>
-                    <h2>Competitions, Challenges & Learning Experiences</h2>
-                    <p>
-                        A selection of events and projects that pushed me beyond regular
-                        homework.
-                    </p>
-                </div>
+                <span class="kicker">Portfolio</span>
+                <h2>Projects & Events</h2>
 
-                <div class="projects-grid">
-                    <!-- STUDENT: duplicate project-card blocks as needed -->
+                <div class="projects-grid" style="margin-top: 32px;">
                     <article class="project-card fade-in-up">
-                        <div class="project-header-row">
-                            <h3 class="project-title">ActiveSTEM Math Marathon</h3>
-                            <span class="project-badge">Event · Team</span>
-                        </div>
-                        <div class="project-meta">Month Year · St. Louis, Missouri</div>
-                        <p class="project-body">
-                            Took part in an intensive ACT-style math marathon where our team
-                            worked through a large set of timed questions. Learned to balance
-                            speed and accuracy and to write clearer working under pressure.
-                        </p>
-                        <div class="project-footer">
-                            <span>Skills: pacing, error checking, teamwork</span>
-                            <!-- STUDENT: link to a reflection page if you have one -->
-                            <a href="#">Reflection / Notes</a>
-                        </div>
+                        <span class="project-badge">Event</span>
+                        <h3>ActiveSTEM Math Marathon</h3>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 12px;">St. Louis, MO</p>
+                        <p>Took part in an intensive ACT-style math marathon. Worked through timed questions to improve
+                            pacing and accuracy under pressure.</p>
                     </article>
 
                     <article class="project-card fade-in-up">
-                        <div class="project-header-row">
-                            <h3 class="project-title">Math Bowl Preparation</h3>
-                            <span class="project-badge">Competition Prep</span>
-                        </div>
-                        <div class="project-meta">Month Year · Active Learning Institute</div>
-                        <p class="project-body">
-                            Practised contest-level questions in algebra, functions, and data.
-                            Focused on step-by-step solutions and explaining my reasoning to
-                            others.
-                        </p>
-                        <div class="project-footer">
-                            <span>Skills: contest thinking, clarity of solutions</span>
-                        </div>
+                        <span class="project-badge">Coding</span>
+                        <h3>GitHub Portfolio</h3>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 12px;">Web Development</p>
+                        <p>Designed and built this personal website using HTML, CSS, and GitHub Pages to document my
+                            academic journey.</p>
                     </article>
 
                     <article class="project-card fade-in-up">
-                        <div class="project-header-row">
-                            <h3 class="project-title">Notes-as-Portfolio Initiative</h3>
-                            <span class="project-badge">Learning Artifact</span>
-                        </div>
-                        <div class="project-meta">Ongoing · With ActiveSTEM Coach</div>
-                        <p class="project-body">
-                            Started scanning and uploading key pages from my notebooks so they
-                            become part of this portfolio. This helps me see how my writing
-                            and organisation improve over time.
-                        </p>
-                        <div class="project-footer">
-                            <span>Skills: organisation, reflection, consistency</span>
-                            <a href="#notes">View notes section</a>
-                        </div>
+                        <span class="project-badge">Study Skill</span>
+                        <h3>Notes-as-Portfolio</h3>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 12px;">Ongoing Initiative</p>
+                        <p>Digitizing handwritten notes and problem sets to track the improvement of my solution writing
+                            over time.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- LEADERSHIP CAROUSEL -->
-        <section id="leadership" class="section section--bg-card">
-            <div class="carousel-fullwidth-container">
-                <!-- LEADERSHIP & SERVICE -->
+        <section id="achievements" class="section section--off-white">
+            <div class="container">
+                <span class="kicker">Leadership</span>
+                <h2>Extracurricular Achievements</h2>
 
-                <div class="container">
-                    <div class="section-header">
-                        <div class="kicker">Leadership</div>
-                        <h2>Leadership & Contribution</h2>
-                        <p>
-                            Ways I support others, take initiative, and participate in the learning community.
-                        </p>
-                    </div>
+                <div class="carousel-fullwidth-container" style="margin-top: 24px;">
                     <div class="carousel-fullwidth">
-                        <div class="carousel-slide fade-in-up">
-                            <h3>Volunteer Work</h3>
-                            <p>Completed 300+ hours of volunteer work, contributing to community projects and
-                                STEM outreach events at librairies and schools.</p>
+                        <div class="carousel-slide">
+                            <h3>Award-Winning Math Tutor</h3>
+                            <p>Recognized for excellence in tutoring peers, helping students build confidence and master difficult algebraic concepts.</p>
                         </div>
-                        <div class="carousel-slide fade-in-up">
-                            <h2>Tennis</h2>
-                            <p>Avid tennis player with a peak UTR of 3.7 before injury; participated in and
-                                helped run many local tournaments.</p>
+                        <div class="carousel-slide">
+                            <h3>Competitive Tennis</h3>
+                            <p>Arranged and won multiple local tournaments. Peak UTR of 3.7. Also helped manage a tennis academy for 2 months, gaining leadership experience.</p>
                         </div>
-                        <div class="carousel-slide fade-in-up">
-                            <h3>Middle School Math Tutoring</h3>
-                            <p>Ran a math tutoring program in middle school, helping peers strengthen algebra
-                                and geometry skills.</p>
+                        <div class="carousel-slide">
+                            <h3>Pianist</h3>
+                            <p>Experienced pianist with years of dedication to music theory and performance.</p>
+                        </div>
+                        <div class="carousel-slide">
+                            <h3>Web Development</h3>
+                            <p>Self-taught developer who built this responsive portfolio website from scratch using HTML, CSS, and JS.</p>
                         </div>
                     </div>
-
-                    <button class="carousel-prev" aria-label="Previous Slide">‹</button>
-                    <button class="carousel-next" aria-label="Next Slide">›</button>
-                </div>
-
-        </section>
-
-        <!-- NOTES / LEARNING ARTIFACTS -->
-        <section id="notes" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <div class="kicker">Notes & Work</div>
-                    <h2>Selected Notes & Learning Artifacts</h2>
-                    <p>
-                        Evidence of how I work, not just what score I got.
-                    </p>
-                </div>
-
-                <div class="grid-2">
-                    <article class="card fade-in-up">
-                        <h3>Artifact Gallery</h3>
-                        <p style="margin-bottom:12px">Snapshots of my problem-solving process and summary sheets.
-                        </p>
-
-                        <div class="artifact-grid">
-                            <a href="#" class="artifact-thumb">
-                                <img src="https://placehold.co/300x400/e2e8f0/1e293b?text=Notes+Page"
-                                    alt="Quadratic Notes Page" />
-                                <div class="artifact-caption">Quadratics Summary</div>
-                            </a>
-
-                            <a href="#" class="artifact-thumb">
-                                <img src="https://placehold.co/300x400/e2e8f0/1e293b?text=Work+Sample"
-                                    alt="Trig Circle Handout" />
-                                <div class="artifact-caption">Unit Circle Derivation</div>
-                            </a>
-
-                            <a href="#" class="artifact-thumb">
-                                <img src="https://placehold.co/300x400/e2e8f0/1e293b?text=Error+Log"
-                                    alt="Mistake Analysis" />
-                                <div class="artifact-caption">Error Analysis Log</div>
-                            </a>
-                        </div>
-                    </article>
-
-                    <aside class="card fade-in-up">
-                        <h3>Methodology</h3>
-                        <p>
-                            My problem-solving process follows the
-                            <a href="https://activestem.org" target="_blank" style="font-weight:700; color:var(--navy)">
-                                ActiveSTEM Framework
-                            </a>:
-                        </p>
-                        <ul class="list">
-                            <li><strong>Structure:</strong> Full written solutions (no skipped steps).</li>
-                            <li><strong>Reflection:</strong> Using the <em style="color:var(--green)">"Error
-                                    Analysis Log"</em> to track why mistakes happen.</li>
-                            <li><strong>Consistency:</strong> Weekly review of concept maps.</li>
-                        </ul>
-                    </aside>
+                    <button class="carousel-prev">‹</button>
+                    <button class="carousel-next">›</button>
                 </div>
             </div>
         </section>
 
-        <!-- EXAMS & BENCHMARKS -->
-        <section id="exams" class="section section--bg-card">
-            <div class="container">
-                <div class="section-header">
-                    <div class="kicker">Exams & Benchmarks</div>
-                    <h2>Key Assessments & Progress</h2>
-                    <p>
-                        A simple record of important tests and what I learnt from them.
-                    </p>
-                </div>
+        <section id="contact" class="section section--white">
+            <div class="container" style="text-align: center; max-width: 600px;">
+                <span class="kicker">Get in Touch</span>
+                <h2>Contact Me</h2>
+                <p>For academic inquiries or collaboration.</p>
 
-                <article class="card fade-in-up">
-                    <h3>Selected Assessments</h3>
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Exam / Test</th>
-                                    <th>Date</th>
-                                    <th>Score / Result</th>
-                                    <th>Reflection</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- STUDENT: update as you go -->
-                                <tr>
-                                    <td>Biology Semester final</td>
-                                    <td>December 2025</td>
-                                    <td>96/100</td>
-                                    <td>Biology final; mastered key concepts and strengthened retention.</td>
-                                </tr>
-                                <tr>
-                                    <td>Geometry Final</td>
-                                    <td>December 2025</td>
-                                    <td>91%</td>
-                                    <td>Lost points mainly due to minor mistakes and incomplete understanding.</td>
-                                </tr>
-                                <tr>
-                                    <td>ActiveSTEM Practice Set – Algebra Review</td>
-                                    <td>Month Year</td>
-                                    <td>Completion / Accuracy</td>
-                                    <td>Used to practise neat, complete solutions under light timing.</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </article>
+                <div class="card fade-in-up" style="margin-top: 24px;">
+                    <p><strong>Email:</strong> <a
+                            href="mailto:Cherrybaddam1981@gmail.com">Cherrybaddam1981@gmail.com</a>
+                    </p>
+                    <p><strong>GitHub:</strong> <a
+                            href="https://github.com/AarnavBaddam">github.com/AarnavBaddam</a></p>
+                    <p><strong>LinkedIn:</strong> <a
+                            href="https://www.linkedin.com/in/aarnav-baddam-a04463344/"
+                            target="_blank">Aarnav Baddam</a></p>
+                </div>
             </div>
         </section>
 
-        <!-- TIMELINE -->
-        <section id="timeline" class="section">
-            <div class="container">
-                <div class="section-header">
-                    <div class="kicker">Timeline</div>
-                    <h2>Timeline of Growth</h2>
-                    <p>
-                        Major turning points in my learning journey so far.
-                    </p>
-                </div>
-
-                <article class="card fade-in-up">
-                    <div class="timeline">
-                        <!-- STUDENT: add milestones -->
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-title">Started Coaching with Active Learning Institute</div>
-                            <div class="timeline-meta">November, 2025</div>
-                            <div class="timeline-body">
-                                Began structured sessions focusing on foundations, written work,
-                                and exam skills.
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-title">Launched This Portfolio Website</div>
-                            <div class="timeline-meta">January, 2026</div>
-                            <div class="timeline-body">
-                                Set up this GitHub Pages site to organise my work and make it
-                                easier to reflect and share.
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-title">First Math Bowl</div>
-                            <div class="timeline-meta">April 2026</div>
-                            <div class="timeline-body">
-                                Experienced contest-style questions under time pressure and
-                                learnt to manage pacing.
-                            </div>
-                        </div>
-
-
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="section section--bg-card">
-            <div class="container">
-                <div class="section-header">
-                    <div class="kicker">Contact</div>
-                    <h2>Contact & Profiles</h2>
-                    <p>
-                        For academic purposes, program applications, or recommendation support.
-                    </p>
-                </div>
-
-                <div class="grid-2">
-                    <article class="card fade-in-up">
-                        <h3>Student Contact</h3>
-                        <p>
-                            <!-- STUDENT: use a professional email -->
-                            Email:
-                            <a href="mailto:student.email@example.com">Cherrybaddam1981@gmail.com</a>
-                        </p>
-                        <p>
-                            GitHub:
-                            <a href="https://github.com/AarnavBaddam">github.com/AarnavBaddam</a>
-                        </p>
-                        <p>
-                            <!-- Optional -->
-                            LinkedIn:
-                            <a href="https://www.linkedin.com/in/aarnav-baddam-a04463344/" target="_blank">Aarnav
-                                Baddam</a>
-
-                        </p>
-                    </article>
-
-                    <aside class="card fade-in-up">
-                        <h3>Notes</h3>
-                        <p>
-                            This portfolio is for academic, competition, and college-readiness
-                            purposes. All sample work is my own or created under guidance in
-                            coaching sessions with the Active Learning Institute.
-                        </p>
-                    </aside>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <!-- FOOTER (branded; gives you SEO + credit on every student site) -->
-    <footer class="site-footer" role="contentinfo">
+    <footer class="site-footer">
         <div class="container foot-grid">
             <div>
-                <h3 style="color: #fff; margin-top: 0">About This Portfolio</h3>
-                <p style="margin-top: -6px; opacity: 0.9">
-                    Personal academic portfolio for Aarnav Baddam, focused on math and STEM growth.
+                <h3>Aarnav Baddam</h3>
+                <p style="opacity: 0.8; margin-bottom: 16px;">
+                    Personal academic portfolio focused on math and STEM growth.
                 </p>
-                <p style="margin-top: 8px; font-size: 0.85rem; opacity: 0.9">
-                    HTML portfolio template created by Prof. Vinay Kanth Rao Kodipelly
-                    for the <a href="https://activestem.org" target="_blank" rel="noopener">Active Learning Institute
-                        (ActiveSTEM.org)</a>
-                    and released under the MIT License for student use.
+                <p style="font-size: 0.85rem; opacity: 0.6;">
+                    HTML portfolio template created by Prof. Vinay Kanth Rao Kodipelly for the <a
+                        href="https://activestem.org" target="_blank" style="color:#fff; text-decoration:underline;">Active
+                        Learning Institute</a>.
                 </p>
             </div>
             <div>
-                <h3 style="color: #fff; margin-top: 0; font-size: 1rem">
-                    Mentorship &amp; Pedagogy
-                </h3>
-                <ul class="list" style="margin-top: 0.4rem; list-style: none; padding: 0;">
-                    <li style="padding-left: 0; margin-bottom: 8px;">
-                        This portfolio was developed under the guidance of
-                        <strong>Prof. Vinay Kanth Rao Kodipelly</strong>.
-                    </li>
-                    <li style="padding-left: 0;">
-                        <a href="https://activestem.org" target="_blank" rel="noopener" style="
-                display: inline-block;
-                background: rgba(255,255,255,0.1);
-                padding: 8px 12px;
-                border-radius: 6px;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 0.85rem;
-                border: 1px solid rgba(255,255,255,0.2);
-                transition: 0.2s;
-              " onmouseover="this.style.background='rgba(255,255,255,0.2)'"
-                            onmouseout="this.style.background='rgba(255,255,255,0.1)'">
-                            Explore the Active Learning Institute →
-                        </a>
-                    </li>
-                </ul>
+                <h3>Mentorship & Pedagogy</h3>
+                <p style="font-size: 0.9rem; opacity: 0.8;">
+                    This portfolio was developed under the guidance of <strong>Prof. Vinay Kanth Rao Kodipelly</strong>.
+                </p>
+                <a href="https://activestem.org" target="_blank"
+                    style="display:inline-block; margin-top:10px; border:1px solid rgba(255,255,255,0.3); padding:8px 12px; border-radius:4px; font-size:0.85rem;">
+                    Explore Active Learning Institute →
+                </a>
             </div>
         </div>
-        <div class="container" style="margin-top: 14px; opacity: 0.85; font-size: 0.9rem">
-            © <span id="y"></span> Aarnav Baddam (portfolio content).
-            Template © <span id="y"></span> Prof. Vinay Kanth Rao Kodipelly, Active Learning Institute (ActiveSTEM.org).
-            MIT License.
+        <div class="container" style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; opacity: 0.6;">
+            © 2026 Aarnav Baddam. MIT License.
         </div>
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Set footer year
-            const yearEl = document.getElementById("y");
-            if (yearEl) {
-                yearEl.textContent = new Date().getFullYear();
-            }
+        // 1. Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
 
-            // Mobile menu toggle
-            const menuToggle = document.getElementById("menu-toggle");
-            const navLinks = document.getElementById("nav-links");
-
-            if (menuToggle && navLinks) {
-                menuToggle.addEventListener("click", () => {
-                    const isExpanded = navLinks.classList.toggle("show");
-                    menuToggle.setAttribute("aria-expanded", String(isExpanded));
-                });
-
-                navLinks.addEventListener("click", (e) => {
-                    if (e.target.matches("a")) {
-                        navLinks.classList.remove("show");
-                        menuToggle.setAttribute("aria-expanded", "false");
-                    }
-                });
-            }
-
-            // Scroll animations for .fade-in-up
-            const animatedEls = document.querySelectorAll(".fade-in-up");
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add("is-visible");
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.1 }
-            );
-
-            animatedEls.forEach((el) => observer.observe(el));
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
         });
-    </script>
 
-
-
-
-
-
-
-    <script>
-        document.querySelectorAll(".typing").forEach(el => {
-            const words = JSON.parse(el.dataset.words);
-            let wordIndex = 0;
-            let charIndex = 0;
-            let deleting = false;
-
-            function type() {
-                const currentWord = words[wordIndex];
-
-                if (!deleting) {
-                    el.textContent = currentWord.slice(0, charIndex + 1);
-                    charIndex++;
-
-                    if (charIndex === currentWord.length) {
-                        setTimeout(() => deleting = true, 1200);
-                    }
-                } else {
-                    el.textContent = currentWord.slice(0, charIndex - 1);
-                    charIndex--;
-
-                    if (charIndex === 0) {
-                        deleting = false;
-                        wordIndex = (wordIndex + 1) % words.length;
-                    }
-                }
-
-                setTimeout(type, deleting ? 40 : 70);
-            }
-
-            type();
-        });
-    </script>
-
-    <script>
-        // ===== Floating header minimize on scroll =====
-
-
-        // ===== Slider indicator =====
-        const nav = document.querySelector('.nav-links');
-        const slider = document.querySelector('.nav-slider');
-        const links = document.querySelectorAll('.nav-links a');
-
-        function moveSlider(link) {
-            const linkRect = link.getBoundingClientRect();
-            const navRect = nav.getBoundingClientRect();
-
-            slider.style.width = `${linkRect.width}px`;
-            slider.style.left = `${linkRect.left - navRect.left}px`;
-        }
-
-        // Move slider on hover
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                moveSlider(link);
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
             });
         });
 
-        // Move slider back to first link on mouse leave
-        nav.addEventListener('mouseleave', () => {
-            const activeLink = document.querySelector('.nav-links a.active') || links[0];
-            moveSlider(activeLink);
-        });
-
-        // Initialize slider on page load
-        window.addEventListener('load', () => {
-            const activeLink = document.querySelector('.nav-links a.active') || links[0];
-            moveSlider(activeLink);
-        });
-    </script>
-
-    <script>
-        const headers = document.querySelectorAll(".accordion-header");
-
-        headers.forEach(header => {
-            header.addEventListener("click", () => {
+        // 2. Accordion Logic
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
                 const content = header.nextElementSibling;
-
-                header.classList.toggle("active");
-                content.classList.toggle("open");
-
-                if (content.classList.contains("open")) {
+                content.classList.toggle('open');
+                if (content.classList.contains('open')) {
                     content.style.maxHeight = content.scrollHeight + "px";
                 } else {
                     content.style.maxHeight = null;
                 }
             });
         });
-    </script>
 
-    <script>
+        // 3. Carousel Logic
         const carousel = document.querySelector('.carousel-fullwidth');
         const slides = document.querySelectorAll('.carousel-slide');
         const prevBtn = document.querySelector('.carousel-prev');
         const nextBtn = document.querySelector('.carousel-next');
-
         let index = 0;
 
         function showSlide(i) {
@@ -2201,11 +1128,32 @@
         prevBtn.addEventListener('click', () => showSlide(index - 1));
         nextBtn.addEventListener('click', () => showSlide(index + 1));
 
-        // Optional: auto-slide every 6 seconds
-        setInterval(() => showSlide(index + 1), 6000);
+        // 4. One-Go Typing Effect (Faster)
+        const typingEl = document.querySelector('.typing');
+        const text = "Student. Developer. Engineer.";
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < text.length) {
+                typingEl.textContent += text.charAt(charIndex);
+                charIndex++;
+                setTimeout(type, 50); // Speed: 50ms per character
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(type, 500); // Start after 0.5s
+        });
+
+        // 5. Fade In Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
     </script>
-
-
 </body>
 
 </html>
