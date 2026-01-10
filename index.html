@@ -56,12 +56,7 @@
             /* match section background */
         }
 
-        .chalky-section {
-            background-color: #F8FAFC;
-            /* chalky color */
-            padding: 60px 0;
-            /* space above/below carousel */
-        }
+
 
         .carousel-fullwidth {
             display: flex;
@@ -188,7 +183,6 @@
             --shadow-3: 0 14px 30px rgba(15, 23, 42, 0.12);
         }
 
-
         /* =========================================================
        SECTION 2: BASE STYLES & ACCESSIBILITY
        ========================================================= */
@@ -196,7 +190,7 @@
         .accordion {
             border-radius: 16px;
             overflow: hidden;
-            background: #fff;
+            background: var(--card);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             margin-bottom: 40px;
             /* adjust if needed */
@@ -204,7 +198,7 @@
 
         .accordion-header {
             width: 100%;
-            background: #fff;
+            background: var(--card);
             border: none;
             padding: 18px 22px;
             font-size: 1.25rem;
@@ -218,7 +212,7 @@
         }
 
         .accordion-header.highlight {
-            background: #fff;
+            background: var(--card);
         }
 
         .accordion-content {
@@ -450,7 +444,8 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(232, 230, 225, 0.95);
+            /* Fossil Stone transparent */
             backdrop-filter: blur(16px);
             padding: 20px 48px;
             box-shadow: var(--shadow-3);
@@ -474,12 +469,12 @@
         /* Circular / oval slider indicator */
         .nav-slider {
             position: absolute;
-            bottom: -12px;
+            bottom: -2px;
             width: 80px;
-            height: 12px;
+            height: 4px;
             border-radius: 999px;
             background: var(--green);
-            transition: left 0.2s ease, width 0.2s ease;
+            transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             pointer-events: none;
             /* doesn’t block clicks */
         }
@@ -510,7 +505,7 @@
             gap: 6px;
             padding: 6px 12px;
             border-radius: 26px;
-            transition: 0.2s;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .brand:hover {
@@ -555,7 +550,7 @@
             padding: 4px 10px;
             border-radius: 20px;
             font-weight: 700;
-            transition: 0.2s;
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .nav-links a:hover {
@@ -638,7 +633,7 @@
             border-radius: 999px;
             font: 700 0.9rem var(--font-body);
             border: 1px solid transparent;
-            transition: all 0.2s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .btn--primary {
@@ -725,7 +720,7 @@
             border-radius: var(--r-10);
             padding: 16px;
             box-shadow: var(--shadow-1);
-            transition: box-shadow 0.2s ease;
+            transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .card:hover {
@@ -795,7 +790,7 @@
         .hero {
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(245, 247, 255, 0.98) 0%, #fff 100%);
+            background: var(--bg);
             padding: 140px 0 60px;
             /* Increased top padding to clear fixed header */
             border-bottom: 1px solid var(--border);
@@ -855,7 +850,7 @@
         }
 
         .hero-meta-card {
-            background: #f8fafc;
+            background: var(--card);
             border-radius: var(--r-8);
             border: 1px solid var(--border);
             padding: 10px 12px;
@@ -896,7 +891,7 @@
 
         /* Timeline for growth & leadership */
         .timeline {
-            border-left: 2px solid #e2e8f0;
+            border-left: 2px solid var(--border);
             padding-left: 16px;
             margin: 8px 0 0;
         }
@@ -951,17 +946,17 @@
         td {
             padding: 6px 8px;
             text-align: left;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--border);
         }
 
         th {
             font-weight: 700;
-            color: #64748b;
-            background: #f8fafc;
+            color: var(--muted);
+            background: rgba(0, 0, 0, 0.03);
         }
 
         tbody tr:hover {
-            background: #f9fafb;
+            background: rgba(255, 255, 255, 0.2);
         }
 
         /* Project / event cards */
@@ -974,10 +969,10 @@
         .project-card {
             border-radius: var(--r-10);
             border: 1px solid var(--border);
-            background: #ffffff;
+            background: var(--card);
             box-shadow: var(--shadow-2);
             padding: 14px 14px 12px;
-            transition: all 0.2s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .project-card:hover {
@@ -1004,8 +999,8 @@
             font-size: 0.75rem;
             padding: 4px 9px;
             border-radius: 999px;
-            background: #e3f2fd;
-            color: #0d47a1;
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--green);
             font-weight: 700;
             white-space: nowrap;
         }
@@ -1068,7 +1063,7 @@
             background: var(--card);
             border: 1px solid var(--border);
             border-radius: var(--r-10);
-            transition: transform 0.2s;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
             min-height: min(calc(100% + 30px), 140px);
             /* takes the smaller of 100%+30px or 140px */
         }
@@ -1113,12 +1108,12 @@
 
         .artifact-thumb {
             aspect-ratio: 3/4;
-            background: #e2e8f0;
+            background: var(--bg);
             border-radius: var(--r-8);
             overflow: hidden;
             border: 1px solid var(--border);
             position: relative;
-            transition: var(--shadow-2);
+            transition: box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: block;
         }
 
@@ -1180,7 +1175,7 @@
         /* 4. Clickable Brand Badge (Hero) */
         .hero-link-card {
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
         }
 
@@ -1761,243 +1756,241 @@
         </section>
 
         <!-- LEADERSHIP CAROUSEL -->
-        <section class="chalky-section">
-            <section id="leadership" class="section section--bg-card">
-                <div class="carousel-fullwidth-container">
-                    <!-- LEADERSHIP & SERVICE -->
+        <section id="leadership" class="section section--bg-card">
+            <div class="carousel-fullwidth-container">
+                <!-- LEADERSHIP & SERVICE -->
 
-                    <div class="container">
-                        <div class="section-header">
-                            <div class="kicker">Leadership</div>
-                            <h2>Leadership & Contribution</h2>
-                            <p>
-                                Ways I support others, take initiative, and participate in the learning community.
-                            </p>
-                        </div>
-                        <div class="carousel-fullwidth">
-                            <div class="carousel-slide fade-in-up">
-                                <h3>Volunteer Work</h3>
-                                <p>Completed 300+ hours of volunteer work, contributing to community projects and
-                                    STEM outreach events at librairies and schools.</p>
-                            </div>
-                            <div class="carousel-slide fade-in-up">
-                                <h2>Tennis</h2>
-                                <p>Avid tennis player with a peak UTR of 3.7 before injury; participated in and
-                                    helped run many local tournaments.</p>
-                            </div>
-                            <div class="carousel-slide fade-in-up">
-                                <h3>Middle School Math Tutoring</h3>
-                                <p>Ran a math tutoring program in middle school, helping peers strengthen algebra
-                                    and geometry skills.</p>
-                            </div>
-                        </div>
-
-                        <button class="carousel-prev" aria-label="Previous Slide">‹</button>
-                        <button class="carousel-next" aria-label="Next Slide">›</button>
-                    </div>
-
-            </section>
-
-            <!-- NOTES / LEARNING ARTIFACTS -->
-            <section id="notes" class="section">
                 <div class="container">
                     <div class="section-header">
-                        <div class="kicker">Notes & Work</div>
-                        <h2>Selected Notes & Learning Artifacts</h2>
+                        <div class="kicker">Leadership</div>
+                        <h2>Leadership & Contribution</h2>
                         <p>
-                            Evidence of how I work, not just what score I got.
+                            Ways I support others, take initiative, and participate in the learning community.
                         </p>
                     </div>
-
-                    <div class="grid-2">
-                        <article class="card fade-in-up">
-                            <h3>Artifact Gallery</h3>
-                            <p style="margin-bottom:12px">Snapshots of my problem-solving process and summary sheets.
-                            </p>
-
-                            <div class="artifact-grid">
-                                <a href="#" class="artifact-thumb">
-                                    <img src="https://placehold.co/300x400/e2e8f0/1e293b?text=Notes+Page"
-                                        alt="Quadratic Notes Page" />
-                                    <div class="artifact-caption">Quadratics Summary</div>
-                                </a>
-
-                                <a href="#" class="artifact-thumb">
-                                    <img src="https://placehold.co/300x400/e2e8f0/1e293b?text=Work+Sample"
-                                        alt="Trig Circle Handout" />
-                                    <div class="artifact-caption">Unit Circle Derivation</div>
-                                </a>
-
-                                <a href="#" class="artifact-thumb">
-                                    <img src="https://placehold.co/300x400/e2e8f0/1e293b?text=Error+Log"
-                                        alt="Mistake Analysis" />
-                                    <div class="artifact-caption">Error Analysis Log</div>
-                                </a>
-                            </div>
-                        </article>
-
-                        <aside class="card fade-in-up">
-                            <h3>Methodology</h3>
-                            <p>
-                                My problem-solving process follows the
-                                <a href="https://activestem.org" target="_blank"
-                                    style="font-weight:700; color:var(--navy)">
-                                    ActiveSTEM Framework
-                                </a>:
-                            </p>
-                            <ul class="list">
-                                <li><strong>Structure:</strong> Full written solutions (no skipped steps).</li>
-                                <li><strong>Reflection:</strong> Using the <em style="color:var(--green)">"Error
-                                        Analysis Log"</em> to track why mistakes happen.</li>
-                                <li><strong>Consistency:</strong> Weekly review of concept maps.</li>
-                            </ul>
-                        </aside>
+                    <div class="carousel-fullwidth">
+                        <div class="carousel-slide fade-in-up">
+                            <h3>Volunteer Work</h3>
+                            <p>Completed 300+ hours of volunteer work, contributing to community projects and
+                                STEM outreach events at librairies and schools.</p>
+                        </div>
+                        <div class="carousel-slide fade-in-up">
+                            <h2>Tennis</h2>
+                            <p>Avid tennis player with a peak UTR of 3.7 before injury; participated in and
+                                helped run many local tournaments.</p>
+                        </div>
+                        <div class="carousel-slide fade-in-up">
+                            <h3>Middle School Math Tutoring</h3>
+                            <p>Ran a math tutoring program in middle school, helping peers strengthen algebra
+                                and geometry skills.</p>
+                        </div>
                     </div>
+
+                    <button class="carousel-prev" aria-label="Previous Slide">‹</button>
+                    <button class="carousel-next" aria-label="Next Slide">›</button>
                 </div>
-            </section>
 
-            <!-- EXAMS & BENCHMARKS -->
-            <section id="exams" class="section section--bg-card">
-                <div class="container">
-                    <div class="section-header">
-                        <div class="kicker">Exams & Benchmarks</div>
-                        <h2>Key Assessments & Progress</h2>
-                        <p>
-                            A simple record of important tests and what I learnt from them.
-                        </p>
-                    </div>
+        </section>
 
+        <!-- NOTES / LEARNING ARTIFACTS -->
+        <section id="notes" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="kicker">Notes & Work</div>
+                    <h2>Selected Notes & Learning Artifacts</h2>
+                    <p>
+                        Evidence of how I work, not just what score I got.
+                    </p>
+                </div>
+
+                <div class="grid-2">
                     <article class="card fade-in-up">
-                        <h3>Selected Assessments</h3>
-                        <div class="table-wrapper">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Exam / Test</th>
-                                        <th>Date</th>
-                                        <th>Score / Result</th>
-                                        <th>Reflection</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- STUDENT: update as you go -->
-                                    <tr>
-                                        <td>Biology Semester final</td>
-                                        <td>December 2025</td>
-                                        <td>96/100</td>
-                                        <td>Biology final; mastered key concepts and strengthened retention.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Geometry Final</td>
-                                        <td>December 2025</td>
-                                        <td>91%</td>
-                                        <td>Lost points mainly due to minor mistakes and incomplete understanding.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>ActiveSTEM Practice Set – Algebra Review</td>
-                                        <td>Month Year</td>
-                                        <td>Completion / Accuracy</td>
-                                        <td>Used to practise neat, complete solutions under light timing.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <h3>Artifact Gallery</h3>
+                        <p style="margin-bottom:12px">Snapshots of my problem-solving process and summary sheets.
+                        </p>
+
+                        <div class="artifact-grid">
+                            <a href="#" class="artifact-thumb">
+                                <img src="https://placehold.co/300x400/e2e8f0/1e293b?text=Notes+Page"
+                                    alt="Quadratic Notes Page" />
+                                <div class="artifact-caption">Quadratics Summary</div>
+                            </a>
+
+                            <a href="#" class="artifact-thumb">
+                                <img src="https://placehold.co/300x400/e2e8f0/1e293b?text=Work+Sample"
+                                    alt="Trig Circle Handout" />
+                                <div class="artifact-caption">Unit Circle Derivation</div>
+                            </a>
+
+                            <a href="#" class="artifact-thumb">
+                                <img src="https://placehold.co/300x400/e2e8f0/1e293b?text=Error+Log"
+                                    alt="Mistake Analysis" />
+                                <div class="artifact-caption">Error Analysis Log</div>
+                            </a>
                         </div>
                     </article>
-                </div>
-            </section>
 
-            <!-- TIMELINE -->
-            <section id="timeline" class="section">
-                <div class="container">
-                    <div class="section-header">
-                        <div class="kicker">Timeline</div>
-                        <h2>Timeline of Growth</h2>
+                    <aside class="card fade-in-up">
+                        <h3>Methodology</h3>
                         <p>
-                            Major turning points in my learning journey so far.
+                            My problem-solving process follows the
+                            <a href="https://activestem.org" target="_blank" style="font-weight:700; color:var(--navy)">
+                                ActiveSTEM Framework
+                            </a>:
                         </p>
+                        <ul class="list">
+                            <li><strong>Structure:</strong> Full written solutions (no skipped steps).</li>
+                            <li><strong>Reflection:</strong> Using the <em style="color:var(--green)">"Error
+                                    Analysis Log"</em> to track why mistakes happen.</li>
+                            <li><strong>Consistency:</strong> Weekly review of concept maps.</li>
+                        </ul>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXAMS & BENCHMARKS -->
+        <section id="exams" class="section section--bg-card">
+            <div class="container">
+                <div class="section-header">
+                    <div class="kicker">Exams & Benchmarks</div>
+                    <h2>Key Assessments & Progress</h2>
+                    <p>
+                        A simple record of important tests and what I learnt from them.
+                    </p>
+                </div>
+
+                <article class="card fade-in-up">
+                    <h3>Selected Assessments</h3>
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Exam / Test</th>
+                                    <th>Date</th>
+                                    <th>Score / Result</th>
+                                    <th>Reflection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- STUDENT: update as you go -->
+                                <tr>
+                                    <td>Biology Semester final</td>
+                                    <td>December 2025</td>
+                                    <td>96/100</td>
+                                    <td>Biology final; mastered key concepts and strengthened retention.</td>
+                                </tr>
+                                <tr>
+                                    <td>Geometry Final</td>
+                                    <td>December 2025</td>
+                                    <td>91%</td>
+                                    <td>Lost points mainly due to minor mistakes and incomplete understanding.</td>
+                                </tr>
+                                <tr>
+                                    <td>ActiveSTEM Practice Set – Algebra Review</td>
+                                    <td>Month Year</td>
+                                    <td>Completion / Accuracy</td>
+                                    <td>Used to practise neat, complete solutions under light timing.</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
+                </article>
+            </div>
+        </section>
 
-                    <article class="card fade-in-up">
-                        <div class="timeline">
-                            <!-- STUDENT: add milestones -->
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-title">Started Coaching with Active Learning Institute</div>
-                                <div class="timeline-meta">November, 2025</div>
-                                <div class="timeline-body">
-                                    Began structured sessions focusing on foundations, written work,
-                                    and exam skills.
-                                </div>
+        <!-- TIMELINE -->
+        <section id="timeline" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="kicker">Timeline</div>
+                    <h2>Timeline of Growth</h2>
+                    <p>
+                        Major turning points in my learning journey so far.
+                    </p>
+                </div>
+
+                <article class="card fade-in-up">
+                    <div class="timeline">
+                        <!-- STUDENT: add milestones -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Started Coaching with Active Learning Institute</div>
+                            <div class="timeline-meta">November, 2025</div>
+                            <div class="timeline-body">
+                                Began structured sessions focusing on foundations, written work,
+                                and exam skills.
                             </div>
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-title">Launched This Portfolio Website</div>
-                                <div class="timeline-meta">January, 2026</div>
-                                <div class="timeline-body">
-                                    Set up this GitHub Pages site to organise my work and make it
-                                    easier to reflect and share.
-                                </div>
-                            </div>
-
-                            <div class="timeline-item">
-                                <div class="timeline-dot"></div>
-                                <div class="timeline-title">First Math Bowl</div>
-                                <div class="timeline-meta">April 2026</div>
-                                <div class="timeline-body">
-                                    Experienced contest-style questions under time pressure and
-                                    learnt to manage pacing.
-                                </div>
-                            </div>
-
-
                         </div>
-                    </article>
-                </div>
-            </section>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">Launched This Portfolio Website</div>
+                            <div class="timeline-meta">January, 2026</div>
+                            <div class="timeline-body">
+                                Set up this GitHub Pages site to organise my work and make it
+                                easier to reflect and share.
+                            </div>
+                        </div>
 
-            <!-- CONTACT -->
-            <section id="contact" class="section section--bg-card">
-                <div class="container">
-                    <div class="section-header">
-                        <div class="kicker">Contact</div>
-                        <h2>Contact & Profiles</h2>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-title">First Math Bowl</div>
+                            <div class="timeline-meta">April 2026</div>
+                            <div class="timeline-body">
+                                Experienced contest-style questions under time pressure and
+                                learnt to manage pacing.
+                            </div>
+                        </div>
+
+
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section section--bg-card">
+            <div class="container">
+                <div class="section-header">
+                    <div class="kicker">Contact</div>
+                    <h2>Contact & Profiles</h2>
+                    <p>
+                        For academic purposes, program applications, or recommendation support.
+                    </p>
+                </div>
+
+                <div class="grid-2">
+                    <article class="card fade-in-up">
+                        <h3>Student Contact</h3>
                         <p>
-                            For academic purposes, program applications, or recommendation support.
+                            <!-- STUDENT: use a professional email -->
+                            Email:
+                            <a href="mailto:student.email@example.com">Cherrybaddam1981@gmail.com</a>
                         </p>
-                    </div>
+                        <p>
+                            GitHub:
+                            <a href="https://github.com/AarnavBaddam">github.com/AarnavBaddam</a>
+                        </p>
+                        <p>
+                            <!-- Optional -->
+                            LinkedIn:
+                            <a href="https://www.linkedin.com/in/aarnav-baddam-a04463344/" target="_blank">Aarnav
+                                Baddam</a>
 
-                    <div class="grid-2">
-                        <article class="card fade-in-up">
-                            <h3>Student Contact</h3>
-                            <p>
-                                <!-- STUDENT: use a professional email -->
-                                Email:
-                                <a href="mailto:student.email@example.com">Cherrybaddam1981@gmail.com</a>
-                            </p>
-                            <p>
-                                GitHub:
-                                <a href="https://github.com/AarnavBaddam">github.com/AarnavBaddam</a>
-                            </p>
-                            <p>
-                                <!-- Optional -->
-                                LinkedIn:
-                                <a href="https://www.linkedin.com/in/aarnav-baddam-a04463344/" target="_blank">Aarnav
-                                    Baddam</a>
+                        </p>
+                    </article>
 
-                            </p>
-                        </article>
-
-                        <aside class="card fade-in-up">
-                            <h3>Notes</h3>
-                            <p>
-                                This portfolio is for academic, competition, and college-readiness
-                                purposes. All sample work is my own or created under guidance in
-                                coaching sessions with the Active Learning Institute.
-                            </p>
-                        </aside>
-                    </div>
+                    <aside class="card fade-in-up">
+                        <h3>Notes</h3>
+                        <p>
+                            This portfolio is for academic, competition, and college-readiness
+                            purposes. All sample work is my own or created under guidance in
+                            coaching sessions with the Active Learning Institute.
+                        </p>
+                    </aside>
                 </div>
-            </section>
+            </div>
+        </section>
     </main>
 
     <!-- FOOTER (branded; gives you SEO + credit on every student site) -->
