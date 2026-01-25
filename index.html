@@ -34,6 +34,16 @@
             text-align: center;
         }
 
+        .hero-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 24px;
+            border: 4px solid var(--white);
+            box-shadow: var(--shadow-3);
+        }
+
         h1 { 
             font-size: clamp(3.5rem, 10vw, 6rem); 
             font-family: var(--font-heading); 
@@ -43,12 +53,19 @@
             text-transform: uppercase;
         }
 
+        .typing-container {
+            min-height: 1.5rem; /* Reserve space to prevent layout shift */
+            display: flex;
+            justify-content: center;
+        }
+
         .typing { 
             font-weight: 700; 
             color: var(--brand); 
             font-size: 1.5rem; 
             letter-spacing: -0.02em;
             text-transform: uppercase;
+            white-space: nowrap; /* Keep text on one line */
         }
 
         /* Glassmorphism Cards */
@@ -71,32 +88,12 @@
             margin-top: 40px;
         }
 
-        .latex-preview-box {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 24px;
+        .latex-preview-image {
+            width: 100%;
             border-radius: 12px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.85rem;
-            line-height: 1.5;
             box-shadow: var(--shadow-3);
-            position: relative;
-            overflow: hidden;
-            border-top: 30px solid #333;
+            border: 1px solid var(--border);
         }
-
-        .latex-preview-box::before {
-            content: "Extreme Math Sol-LaTeX.tex";
-            position: absolute;
-            top: -25px;
-            left: 15px;
-            color: #aaa;
-            font-size: 11px;
-        }
-
-        .latex-code-green { color: #6A9955; }
-        .latex-code-blue { color: #569CD6; }
-        .latex-code-yellow { color: #DCDCAA; }
 
         /* Standardized Section Headings */
         .section-title {
@@ -107,9 +104,33 @@
             margin-bottom: 40px;
         }
 
-        /* Nav links and Buttons preserved from your version with style tweaks */
-        .btn--primary { background: var(--navy); color: white; padding: 15px 30px; border-radius: 4px; font-weight: 800; text-transform: uppercase; }
-        .btn--secondary { border: 2px solid var(--navy); color: var(--navy); font-weight: 800; text-transform: uppercase; }
+        /* Updated Button Styles */
+        .btn {
+            padding: 15px 30px;
+            border-radius: 4px;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .btn--primary {
+            background: var(--navy);
+            color: white;
+        }
+
+        .btn--secondary {
+            background: transparent;
+            border-color: var(--navy);
+            color: var(--navy);
+        }
+
+        .btn--secondary:hover {
+            background: var(--navy);
+            color: white;
+        }
 
         /* Grid and Layout preserved */
         .container { max-width: 1140px; margin-inline: auto; padding: 0 24px; }
@@ -124,20 +145,29 @@
         /* Header logic preserved */
         .site-header { position: fixed; top: 0; width: 100%; z-index: 1000; background: #fff; border-bottom: 1px solid var(--border); padding: 20px 0; }
         .nav { display: flex; justify-content: space-between; align-items: center; }
-        .nav-links a { font-weight: 700; color: var(--navy); text-transform: uppercase; font-size: 0.8rem; margin-left: 30px; }
+        .brand-title { display: flex; flex-direction: column; }
+        .brand-name { font-family: var(--font-heading); color: var(--navy); text-transform: uppercase; font-size: 1.2rem; line-height: 1; }
+        .brand-subtitle { font-size: 0.75rem; color: var(--brand); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+        .nav-links { display: flex; align-items: center; gap: 20px; }
+        .nav-link { font-weight: 700; color: var(--navy); text-transform: uppercase; font-size: 0.8rem; text-decoration: none; padding: 8px 12px; border-radius: 4px; transition: all 0.3s ease; }
+        .nav-link:hover { background: var(--navy); color: white; }
+        .nav-btn { padding: 8px 16px; font-size: 0.8rem; }
     </style>
 </head>
 
 <body>
     <header class="site-header">
         <div class="container nav">
-            <div style="font-family: var(--font-heading); color: var(--navy); text-transform: uppercase;">Aarnav Baddam</div>
+            <div class="brand-title">
+                <span class="brand-name">Aarnav Baddam</span>
+                <span class="brand-subtitle">Math & STEM Portfolio</span>
+            </div>
             <nav class="nav-links">
-                <a href="#about">About</a>
-                <a href="#academics">Academics</a>
-                <a href="#latex">LaTeX Work</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#academics" class="nav-link">Academics</a>
+                <a href="#latex" class="nav-link">LaTeX Work</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="btn btn--primary nav-btn">Contact</a>
             </nav>
         </div>
     </header>
@@ -145,21 +175,24 @@
     <main>
         <section class="hero">
             <div class="container">
+                <img src="Images/IMG_1552.jpeg" alt="Aarnav Baddam" class="hero-avatar">
                 <span style="color: var(--brand); font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Portfolio 2026</span>
                 <h1>Aarnav<br>Baddam</h1>
-                <div class="typing"></div>
+                <div class="typing-container">
+                    <span class="typing"></span>
+                </div>
                 
                 <p class="lead" style="margin-top: 30px;">9th Grade Student at Parkway West High. Solving complex problems through mathematical rigor and engineering logic.</p>
                 
                 <div style="margin-top: 40px; display: flex; justify-content: center; gap: 20px;">
-                    <a href="Images/resume.pdf" class="btn--primary">Download CV</a>
-                    <a href="#latex" class="btn--secondary" style="padding: 15px 30px; border-radius: 4px;">View Technical Work</a>
+                    <a href="Images/resume.pdf" class="btn btn--secondary">Download Resume</a>
+                    <a href="#projects" class="btn btn--secondary">View Projects</a>
                 </div>
 
                 <div class="grid-2" style="margin-top: 60px;">
                     <div class="hero-meta-card">
                         <div style="font-size: 0.7rem; font-weight: 800; color: var(--brand);">CURRENT FOCUS</div>
-                        <div style="font-weight: 800; color: var(--navy); font-size: 1.2rem;">HONORS GEOMETRY & BIOLOGY</div>
+                        <div style="font-weight: 800; color: var(--navy); font-size: 1.2rem;">9TH GRADE, PARKWAY WEST HIGH SCHOOL</div>
                     </div>
                     <div class="hero-meta-card">
                         <div style="font-size: 0.7rem; font-weight: 800; color: var(--brand);">AFFILIATION</div>
@@ -181,19 +214,12 @@
                         <div style="margin-top: 30px;">
                             <h4 style="margin-bottom: 10px;">Extreme Math Solutions</h4>
                             <p style="font-size: 0.9rem;">This document contains a series of advanced algebraic and trigonometric proofs prepared as part of my ActiveSTEM training.</p>
-                            <a href="Extreme Math Sol-LaTeX.tex" download class="btn--primary" style="display: inline-block; margin-top: 15px;">Download .TEX File</a>
+                            <a href="Extreme Math Sol-LaTeX.tex" download class="btn btn--primary" style="display: inline-block; margin-top: 15px;">Download .TEX File</a>
                         </div>
                     </div>
 
-                    <div class="latex-preview-box">
-                        <span class="latex-code-blue">\documentclass</span>{article}<br>
-                        <span class="latex-code-blue">\usepackage</span>{amsmath}<br>
-                        <span class="latex-code-blue">\begin</span>{document}<br>
-                        <span class="latex-code-yellow">\section</span>{Algebraic Proof}<br>
-                        The quadratic formula is given by:<br>
-                        <span class="latex-code-yellow">\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]</span><br>
-                        <span class="latex-code-green">% Solving for x in complex planes</span><br>
-                        <span class="latex-code-blue">\end</span>{document}
+                    <div>
+                        <img src="Images/Extreme_Algebra_SOLs (1).pdf" alt="Preview of LaTeX Document" class="latex-preview-image">
                     </div>
                 </div>
             </div>
@@ -238,33 +264,39 @@
                 <h2 class="section-title">Connect</h2>
                 <p>Aarnavbaddam11@gmail.com</p>
                 <div style="margin-top: 20px;">
-                    <a href="https://github.com/AarnavBaddam" style="margin: 0 15px; font-weight: 800;">GITHUB</a>
-                    <a href="https://www.linkedin.com/in/aarnav-baddam-a04463344/" style="margin: 0 15px; font-weight: 800;">LINKEDIN</a>
+                    <a href="https://github.com/AarnavBaddam" style="margin: 0 15px; font-weight: 800; color: var(--brand); text-decoration: none;">GITHUB</a>
+                    <a href="https://www.linkedin.com/in/aarnav-baddam-a04463344/" style="margin: 0 15px; font-weight: 800; color: var(--brand); text-decoration: none;">LINKEDIN</a>
                 </div>
             </div>
         </section>
     </main>
 
     <script>
-        // Typing Effect preserved and updated
+        // Typing Effect preserved and updated for character-by-character deletion
         const typingEl = document.querySelector('.typing');
         const text = "Student. Developer. Engineer.";
         let charIndex = 0; let isDeleting = false;
+        
         function type() {
             if (!isDeleting && charIndex < text.length) {
+                // Typing
                 typingEl.textContent += text.charAt(charIndex++);
                 setTimeout(type, 80);
             } else if (!isDeleting && charIndex === text.length) {
+                // Finished typing, wait before deleting
                 isDeleting = true;
                 setTimeout(type, 2000);
             } else if (isDeleting && charIndex > 0) {
+                // Deleting character by character
                 typingEl.textContent = text.substring(0, --charIndex);
                 setTimeout(type, 50);
             } else {
+                // Finished deleting, wait before re-typing
                 isDeleting = false;
                 setTimeout(type, 500);
             }
         }
+        
         document.addEventListener('DOMContentLoaded', () => setTimeout(type, 500));
     </script>
 </body>
