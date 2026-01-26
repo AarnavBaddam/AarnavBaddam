@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Aarnav Baddam — Academic Portfolio</title>
 
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect x='0' y='0' width='64' height='64' rx='12' fill='%23000000'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' fill='%23FFFFFF' font-family='Arial Black, sans-serif' font-weight='900' font-size='32'>AB</text></svg>">
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +22,7 @@
             --border: #E2E8F0;
             --font-heading: 'Archivo Black', sans-serif;
             --font-body: 'Inter', sans-serif;
-            /* Updated Shadows for a more modern feel */
+            /* Updated Shadows */
             --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -31,7 +33,6 @@
 
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        /* Increased line-height slightly for better readability */
         body { margin: 0; background: var(--bg); color: var(--muted); font: 400 1.05rem/1.7 var(--font-body); padding-top: 70px; }
 
         /* --- BUTTONS --- */
@@ -85,7 +86,6 @@
         .nav-links { display: flex; align-items: center; gap: 24px; }
         .nav-link { font-weight: 700; color: var(--navy); text-transform: uppercase; font-size: 0.85rem; text-decoration: none; padding: 8px 0; transition: color 0.2s; position: relative;}
         .nav-link:hover { color: var(--brand); }
-        /* Add subtle underline animation to nav links */
         .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0; background-color: var(--brand); transition: width 0.3s ease; }
         .nav-link:hover::after { width: 100%; }
         
@@ -128,7 +128,6 @@
         /* --- HERO SECTION --- */
         .hero { 
             padding: 80px 0 100px;
-            /* Subtle gradient refresh */
             background: radial-gradient(circle at 60% 40%, #f0f7ff 0%, #ffffff 60%);
             overflow: hidden;
         }
@@ -163,7 +162,6 @@
             font-family: var(--font-heading); text-transform: uppercase; font-size: 2.5rem;
             color: var(--navy); margin-bottom: 50px; position: relative; display: inline-block;
         }
-        /* Add an accent line under section titles */
         .section-title::after {
             content: ''; position: absolute; left: 0; bottom: -10px; width: 60px; height: 4px; background: var(--brand); border-radius: 2px;
         }
@@ -185,23 +183,21 @@
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-        /* --- CARDS & COMPONENTS (Enhanced) --- */
+        /* --- CARDS & COMPONENTS --- */
         .card { 
             background: #fff; 
-            /* Replaced border with shadow for a cleaner look */
             border: none;
             box-shadow: var(--shadow-md);
             padding: 40px; 
             border-radius: var(--r-12); 
             transition: all 0.3s ease;
         }
-        /* Hover Lift Effect */
         .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
 
         .card-title { margin-top: 0; color: var(--navy); font-size: 1.35rem; }
         .card-subtitle { color: var(--brand); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 12px; display: block; letter-spacing: 0.05em; }
 
-        /* Accordion (Enhanced) */
+        /* Accordion */
         .accordion-header {
             width: 100%; background: #fff; border: 1px solid var(--border); border-radius: var(--r-8); padding: 18px 24px;
             text-align: left; cursor: pointer; font-weight: 700; display: flex; justify-content: space-between;
@@ -211,12 +207,19 @@
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 24px; }
         .accordion-content.open { padding-bottom: 24px; padding-top: 10px; }
 
-        /* Tables & Tabs (Cleaner) */
-        .tabs { display: flex; gap: 10px; margin-bottom: 0; border-bottom: none; overflow-x: auto; padding-bottom: 10px;}
+        /* Tables & Tabs (Updated padding to fix cut-off) */
+        .tabs { 
+            display: flex; 
+            gap: 10px; 
+            margin-bottom: 0; 
+            border-bottom: none; 
+            overflow-x: auto; 
+            padding: 10px; /* Added padding around container */
+        }
         .tab-btn {
             background: white; border: 1px solid var(--border); padding: 12px 24px; font-family: var(--font-body);
             font-weight: 700; color: var(--muted); cursor: pointer; border-radius: 30px;
-            transition: 0.3s; white-space: nowrap; box-shadow: var(--shadow-sm);
+            transition: 0.3s; white-space: nowrap; box-shadow: var(--shadow-sm); flex-shrink: 0; /* Prevent shrinking */
         }
         .tab-btn:hover { background: #f1f5f9; color: var(--navy); transform: translateY(-2px); }
         .tab-btn.active { background: var(--brand); color: white; border-color: var(--brand); box-shadow: var(--shadow-md); }
@@ -234,13 +237,12 @@
         tr:hover td { background: #f8fafc; }
         .table-wrapper { overflow-x: auto; }
 
-        /* Projects Section (Glassmorphism Redesign) */
+        /* Projects */
         #projects {
             background: linear-gradient(135deg, var(--navy) 0%, #002a52 100%);
             color: white;
         }
         .project-box {
-            /* Glassmorphism effect instead of simple borders */
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -276,7 +278,7 @@
         }
         .latex-preview-image:hover { transform: scale(1.02); box-shadow: var(--shadow-hover); }
 
-        /* Carousel Styles (Enhanced) */
+        /* Carousel Styles */
         .carousel-wrapper {
             position: relative; border-radius: var(--r-12); overflow: hidden;
             box-shadow: var(--shadow-lg); border: 1px solid var(--border); background: white;
@@ -288,9 +290,9 @@
         .carousel-slide { min-width: 100%; display: flex; justify-content: center; align-items: center; background: #fff; }
         
         .carousel-slide img { 
-            width: 100%; height: 400px; /* Increased height slightly */
+            width: 100%; height: 400px;
             object-fit: contain; display: block; cursor: zoom-in; 
-            padding: 20px; /* Add padding so image doesn't touch edges */
+            padding: 20px;
         }
 
         .carousel-control {
@@ -308,7 +310,7 @@
         /* Lightbox */
         .lightbox {
             display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 8, 20, 0.95); /* Darker background */
+            background-color: rgba(0, 8, 20, 0.95);
             backdrop-filter: blur(5px);
             justify-content: center; align-items: center; padding: 20px;
             animation: fadeIn 0.3s ease;
@@ -326,8 +328,8 @@
 
         /* Alternate section background for depth */
         section:nth-child(even) { background: #f8fafc; }
-        #projects { background: linear-gradient(135deg, var(--navy) 0%, #002a52 100%) !important; } /* Override nth-child for projects */
-        #about { background: #fff !important; } /* Override for about */
+        #projects { background: linear-gradient(135deg, var(--navy) 0%, #002a52 100%) !important; }
+        #about { background: #fff !important; }
 
     </style>
 </head>
@@ -588,10 +590,10 @@
                     <div class="grid-item-centered">
                         <div class="carousel-wrapper">
                             <div class="carousel-slides">
-                                <div class="carousel-slide"><img src="Images/Assembled.jpeg" alt="Assembled View" onclick="openLightbox(this.src)"></div>
-                                <div class="carousel-slide"><img src="Images/Exploded.jpeg" alt="Exploded View" onclick="openLightbox(this.src)"></div>
-                                <div class="carousel-slide"><img src="Images/Backisoview.jpeg" alt="Back Isometric View" onclick="openLightbox(this.src)"></div>
-                                <div class="carousel-slide"><img src="Images/Frontisoview.jpeg" alt="Front Isometric View" onclick="openLightbox(this.src)"></div>
+                                <div class="carousel-slide"><img src="Images/Assembled.jpg" alt="Assembled View" onclick="openLightbox(this.src)"></div>
+                                <div class="carousel-slide"><img src="Images/Exploded.jpg" alt="Exploded View" onclick="openLightbox(this.src)"></div>
+                                <div class="carousel-slide"><img src="Images/Backisoview.jpg" alt="Back Isometric View" onclick="openLightbox(this.src)"></div>
+                                <div class="carousel-slide"><img src="Images/Frontisoview.jpg" alt="Front Isometric View" onclick="openLightbox(this.src)"></div>
                             </div>
                             <button class="carousel-control prev" onclick="moveCarousel(-1)">&#10094;</button>
                             <button class="carousel-control next" onclick="moveCarousel(1)">&#10095;</button>
@@ -699,7 +701,7 @@
         const academicsSection = document.getElementById('academics');
         window.addEventListener('scroll', () => {
             if (!academicsSection) return;
-            const triggerPoint = academicsSection.offsetTop - 200;
+            const triggerPoint = academicsSection.offsetTop;
             if (window.scrollY >= triggerPoint) backToTopBtn.classList.add('visible');
             else backToTopBtn.classList.remove('visible');
         });
