@@ -26,79 +26,9 @@
 
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { margin: 0; background: var(--bg); color: var(--muted); font: 400 1rem/1.6 var(--font-body); padding-top: 80px; }
+        body { margin: 0; background: var(--bg); color: var(--muted); font: 400 1rem/1.6 var(--font-body); padding-top: 70px; }
 
-        /* --- HERO SECTION --- */
-        .hero { 
-            padding: 80px 0 100px; 
-            background: radial-gradient(circle at 50% 50%, #f0f7ff 0%, #ffffff 70%);
-            overflow: hidden;
-        }
-
-        .hero-layout {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 60px;
-            text-align: left;
-        }
-
-        .hero-avatar {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid var(--white);
-            box-shadow: var(--shadow-3);
-            flex-shrink: 0;
-        }
-
-        .hero-content {
-            max-width: 600px;
-        }
-
-        h1 { 
-            font-size: clamp(3rem, 6vw, 5rem); 
-            font-family: var(--font-heading); 
-            color: var(--navy); 
-            line-height: 0.95; 
-            margin: 0 0 16px 0;
-            text-transform: uppercase;
-        }
-
-        /* Typing Container Fixed Height to prevent Jitter */
-        .typing-container {
-            min-height: 1.6em; 
-            display: flex;
-            align-items: center;
-            margin-bottom: 24px;
-        }
-
-        .typing { 
-            font-weight: 700; 
-            color: var(--brand); 
-            font-size: 1.5rem; 
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-            white-space: nowrap;
-            position: relative;
-        }
-
-        /* Blinking Cursor Indicator */
-        .typing::after {
-            content: "|";
-            display: inline-block;
-            margin-left: 4px;
-            color: var(--navy);
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* Buttons with Hover Highlight */
+        /* --- BUTTONS --- */
         .btn {
             padding: 15px 30px;
             border-radius: 4px;
@@ -109,6 +39,7 @@
             display: inline-block;
             border: 2px solid transparent;
             font-size: 0.9rem;
+            cursor: pointer;
         }
 
         .btn--primary {
@@ -132,10 +63,150 @@
             background: var(--navy);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 26, 51, 0.2);
         }
 
-        /* Meta Cards */
+        /* --- HEADER & NAVIGATION --- */
+        .site-header { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 16px 0; }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        
+        .brand-title { display: flex; flex-direction: column; z-index: 1002; }
+        .brand-name { font-family: var(--font-heading); color: var(--navy); text-transform: uppercase; font-size: 1.2rem; line-height: 1; }
+        .brand-subtitle { font-size: 0.75rem; color: var(--brand); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+        
+        .nav-links { display: flex; align-items: center; gap: 24px; }
+        .nav-link { font-weight: 700; color: var(--navy); text-transform: uppercase; font-size: 0.85rem; text-decoration: none; padding: 8px 0; transition: color 0.2s; }
+        .nav-link:hover { color: var(--brand); text-decoration: underline; }
+        
+        /* Contact Button in Nav */
+        .nav-btn {
+            background: var(--brand); 
+            color: white; 
+            padding: 10px 20px; 
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+        .nav-btn:hover { background: var(--navy); }
+
+        /* Hamburger Menu (Mobile) */
+        .menu-toggle { display: none; background: none; border: none; cursor: pointer; z-index: 1005; }
+        .menu-toggle svg { width: 32px; height: 32px; color: var(--navy); }
+
+        /* Mobile Styles */
+        @media (max-width: 900px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--navy); 
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                transform: translateY(-100%);
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 1001;
+                opacity: 0;
+            }
+            .nav-links.active { transform: translateY(0); opacity: 1; }
+            .nav-link { color: white; font-size: 2rem; }
+            .nav-link:hover { color: var(--brand); }
+            .nav-btn { background: white; color: var(--navy); font-size: 1.5rem; padding: 15px 40px; }
+            .menu-toggle { display: block; }
+            .nav-links.active ~ .menu-toggle svg { color: white; }
+        }
+
+        /* --- BACK TO TOP BUTTON --- */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--brand);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            z-index: 999;
+            transform: translateY(20px);
+        }
+        #backToTop.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
+        #backToTop:hover { background: var(--navy); transform: translateY(-5px); }
+
+        /* --- HERO SECTION --- */
+        .hero { 
+            padding: 60px 0 60px;
+            background: radial-gradient(circle at 50% 50%, #f0f7ff 0%, #ffffff 70%);
+            overflow: hidden;
+        }
+
+        .hero-layout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            text-align: left;
+        }
+
+        .hero-avatar {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid var(--white);
+            box-shadow: var(--shadow-3);
+            flex-shrink: 0;
+        }
+
+        .hero-content { max-width: 600px; }
+
+        h1 { 
+            font-size: clamp(3rem, 6vw, 5rem); 
+            font-family: var(--font-heading); 
+            color: var(--navy); 
+            line-height: 0.95; 
+            margin: 0 0 16px 0;
+            text-transform: uppercase;
+        }
+
+        .typing-container {
+            min-height: 1.6em; 
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .typing { 
+            font-weight: 700; 
+            color: var(--brand); 
+            font-size: 1.5rem; 
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+        .typing::after {
+            content: "|";
+            display: inline-block;
+            margin-left: 4px;
+            color: var(--navy);
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
         .hero-meta-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -160,63 +231,27 @@
             margin-bottom: 40px;
         }
 
-        /* LaTeX Preview */
-        .latex-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-
-        /* Fixed PDF Preview Style */
-        .latex-preview-frame {
-            width: 100%;
-            height: 600px; /* Increased height to fit full page */
-            border-radius: 12px;
-            box-shadow: var(--shadow-3);
-            border: 1px solid var(--border);
-            background: #f1f1f1;
-        }
-
         .container { max-width: 1140px; margin-inline: auto; padding: 0 24px; }
         .section { padding: 80px 0; }
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-
+        
         @media (max-width: 900px) {
             .hero-layout { flex-direction: column; text-align: center; }
-            .hero-avatar { width: 200px; height: 200px; }
+            .hero-avatar { width: 200px; height: 200px; margin-bottom: 20px; }
             .typing-container { justify-content: center; }
             .hero-meta-grid { text-align: left; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr !important; }
             .latex-container { grid-template-columns: 1fr; }
-            .grid-2 { grid-template-columns: 1fr; }
         }
 
-        /* Header */
-        .site-header { position: fixed; top: 0; width: 100%; z-index: 1000; background: #fff; border-bottom: 1px solid var(--border); padding: 16px 0; }
-        .nav { display: flex; justify-content: space-between; align-items: center; }
-        .brand-title { display: flex; flex-direction: column; }
-        .brand-name { font-family: var(--font-heading); color: var(--navy); text-transform: uppercase; font-size: 1.2rem; line-height: 1; }
-        .brand-subtitle { font-size: 0.75rem; color: var(--brand); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
-        
-        .nav-links { display: flex; align-items: center; gap: 24px; }
-        .nav-link { font-weight: 700; color: var(--navy); text-transform: uppercase; font-size: 0.85rem; text-decoration: none; padding: 8px 0; transition: color 0.2s; }
-        .nav-link:hover { color: var(--brand); text-decoration: underline; }
-        
-        /* Contact Button in Nav */
-        .nav-btn {
-            background: var(--brand); 
-            color: white; 
-            padding: 10px 20px; 
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            transition: 0.3s;
-        }
-        .nav-btn:hover { background: var(--navy); transform: translateY(-1px); }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
 
-        /* Accordion for About Section */
+        /* --- COMPONENTS --- */
+        .card { background: #fff; border: 1px solid var(--border); padding: 32px; border-radius: 8px; }
+        .card-title { margin-top: 0; color: var(--navy); font-size: 1.25rem; }
+        .card-subtitle { color: var(--brand); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; margin-bottom: 12px; display: block; }
+
+        /* Accordion */
         .accordion-header {
             width: 100%; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 16px;
             text-align: left; cursor: pointer; font-weight: 700; display: flex; justify-content: space-between;
@@ -226,23 +261,128 @@
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; padding: 0 16px; }
         .accordion-content.open { padding-bottom: 16px; }
 
-        /* Card Styles */
-        .card { background: #fff; border: 1px solid var(--border); padding: 24px; border-radius: 8px; }
+        /* Tables & Tabs */
+        .tabs { display: flex; gap: 5px; margin-bottom: 0; border-bottom: 2px solid var(--border); overflow-x: auto;}
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 24px;
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: var(--muted);
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+        .tab-btn:hover { background: #f1f5f9; color: var(--navy); }
+        .tab-btn.active { background: var(--brand); color: white; }
+
+        .tab-content { display: none; border: 1px solid var(--border); border-top: none; padding: 20px; border-radius: 0 0 8px 8px; background: white; animation: fadeIn 0.3s ease;}
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+
+        table { width: 100%; border-collapse: collapse; min-width: 600px; }
+        th, td { padding: 16px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+        th { background: var(--navy); color: white; font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+        tr:last-child td { border-bottom: none; }
+        .table-wrapper { overflow-x: auto; }
+
+        /* Projects */
+        .project-box {
+            border: 1px solid white;
+            padding: 30px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.05);
+        }
+        .pub-date-badge {
+            display: inline-block;
+            margin-top: 16px;
+            background: #FFFFFF;
+            color: var(--navy);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* LaTeX Preview & Lightbox */
+        .latex-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .latex-preview-image { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 12px; 
+            box-shadow: var(--shadow-3); 
+            border: 1px solid var(--border); 
+            display: block;
+            cursor: zoom-in; /* Indicates clickability */
+            transition: transform 0.2s;
+        }
+        .latex-preview-image:hover { transform: scale(1.02); }
+
+        /* Lightbox Overlay */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 8, 20, 0.9);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 95vh;
+            border-radius: 4px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .lightbox-close:hover { color: var(--brand); }
+
     </style>
 </head>
 
-<body>
+<body id="top">
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" src="">
+    </div>
+
+    <button id="backToTop" title="Back to Top">↑</button>
+
     <header class="site-header">
         <div class="container nav">
             <div class="brand-title">
                 <span class="brand-name">Aarnav Baddam</span>
                 <span class="brand-subtitle">Math & STEM Portfolio</span>
             </div>
-            <nav class="nav-links">
+            
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle navigation">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </button>
+
+            <nav class="nav-links" id="nav-links">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#academics" class="nav-link">Academics</a>
-                <a href="#latex" class="nav-link">LaTeX Work</a>
+                <a href="#leadership" class="nav-link">Leadership</a>
                 <a href="#projects" class="nav-link">Projects</a>
+                <a href="#documents" class="nav-link">Documents</a>
                 <a href="#contact" class="nav-btn">Contact</a>
             </nav>
         </div>
@@ -251,7 +391,7 @@
     <main>
         <section class="hero">
             <div class="container hero-layout">
-                <img src="Images/IMG_1552.jpeg" alt="Aarnav Baddam" class="hero-avatar">
+                <img src="Images/Heropfp.jpeg" alt="Aarnav Baddam" class="hero-avatar">
                 
                 <div class="hero-content">
                     <h1>Aarnav<br>Baddam</h1>
@@ -262,9 +402,9 @@
                     
                     <p class="lead" style="margin-top: 16px; font-size: 1.1rem; line-height: 1.6;">9th Grade Student at Parkway West High. Solving complex problems through mathematical rigor and engineering logic.</p>
                     
-                    <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+                    <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: flex-start;">
                         <a href="Images/resume.pdf" class="btn btn--secondary">Download Resume</a>
-                        <a href="#latex" class="btn btn--secondary">View Technical Work</a>
+                        <a href="#documents" class="btn btn--secondary">View Technical Work</a>
                     </div>
 
                     <div class="hero-meta-grid">
@@ -281,7 +421,7 @@
             </div>
         </section>
 
-        <section id="about" class="section" style="background: #fff; border-bottom: 1px solid var(--border);">
+        <section id="about" class="section" style="background: #fff; border-bottom: 1px solid var(--border); padding-top: 60px;">
             <div class="container">
                 <div class="grid-2">
                     <div>
@@ -323,30 +463,188 @@
 
         <section id="academics" class="section">
             <div class="container">
-                <h2 class="section-title">Academics</h2>
-                <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
-                    <table style="width: 100%; border-collapse: collapse;">
-                        <thead style="background: var(--navy); color: white;">
-                            <tr><th style="padding: 20px; text-align: left;">COURSE</th><th style="padding: 20px; text-align: left;">LEVEL</th></tr>
-                        </thead>
-                        <tbody>
-                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 20px;">Honors Geometry</td><td style="padding: 20px;">9th Grade</td></tr>
-                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 20px;">Honors Biology</td><td style="padding: 20px;">9th Grade</td></tr>
-                            <tr><td style="padding: 20px;">Algebra II</td><td style="padding: 20px;">ActiveSTEM Coaching</td></tr>
-                        </tbody>
-                    </table>
+                <h2 class="section-title">Academic Pathway</h2>
+                <p style="margin-bottom: 24px; color: var(--muted);">Targeting Mechanical Engineering & Applied Physics.</p>
+                
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="openTab(event, 'grade9')">9th Grade (Current)</button>
+                    <button class="tab-btn" onclick="openTab(event, 'grade10')">10th Grade</button>
+                    <button class="tab-btn" onclick="openTab(event, 'grade11')">11th Grade</button>
+                    <button class="tab-btn" onclick="openTab(event, 'grade12')">12th Grade</button>
+                </div>
+
+                <div id="grade9" class="tab-content active">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead><tr><th>Course</th><th>Category</th></tr></thead>
+                            <tbody>
+                                <tr><td>Honors Geometry</td><td>Mathematics</td></tr>
+                                <tr><td>Honors Biology</td><td>Science</td></tr>
+                                <tr><td>Honors English 1</td><td>Language Arts</td></tr>
+                                <tr><td>AP Human Geography</td><td>Social Studies</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="grade10" class="tab-content">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead><tr><th>Course</th><th>Category</th></tr></thead>
+                            <tbody>
+                                <tr><td>Math (TBD)</td><td>Mathematics</td></tr>
+                                <tr><td>AP Physics 1</td><td>Science</td></tr>
+                                <tr><td>Honors Chemistry</td><td>Science</td></tr>
+                                <tr><td>Honors Principles of Engineering</td><td>Engineering</td></tr>
+                                <tr><td>Honors English 2</td><td>Language Arts</td></tr>
+                                <tr><td>AP World History</td><td>Social Studies</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="grade11" class="tab-content">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead><tr><th>Course</th><th>Category</th></tr></thead>
+                            <tbody>
+                                <tr><td>AP Calculus BC</td><td>Mathematics</td></tr>
+                                <tr><td>AP Physics C: Mechanics</td><td>Science (Engineering Core)</td></tr>
+                                <tr><td>Honors Civil Engineering & Arch.</td><td>Engineering</td></tr>
+                                <tr><td>AP English Language</td><td>Language Arts</td></tr>
+                                <tr><td>AP US History</td><td>Social Studies</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="grade12" class="tab-content">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead><tr><th>Course</th><th>Category</th></tr></thead>
+                            <tbody>
+                                <tr><td>Multivariable Calculus / Diff. Eq</td><td>Mathematics</td></tr>
+                                <tr><td>AP Physics C: E&M</td><td>Science</td></tr>
+                                <tr><td>Engineering Design (Capstone)</td><td>Engineering</td></tr>
+                                <tr><td>AP English Literature</td><td>Language Arts</td></tr>
+                                <tr><td>AP Micro/Macro Economics</td><td>Social Studies</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="latex" class="section" style="background: #f8fafc;">
+        <section id="exams" class="section" style="background: #f8fafc;">
             <div class="container">
-                <h2 class="section-title">Technical Communication</h2>
+                <h2 class="section-title">Exams & Benchmarks</h2>
+                <div class="card">
+                    <div class="table-wrapper">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Assessment</th>
+                                    <th>Date</th>
+                                    <th>Result</th>
+                                    <th>Reflection</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Honors Geometry Final</td>
+                                    <td>December, 2025</td>
+                                    <td>91/100</td>
+                                    <td>Found gaps in proof writing and geometry concepts.</td>
+                                </tr>
+                                <tr>
+                                    <td>AP Human Geography Final</td>
+                                    <td>December, 2025</td>
+                                    <td>106/100 (Curved Score)</td>
+                                    <td>Applied my knowledge of geographic concepts and complex spatial analysis.</td>
+                                </tr>
+                                <tr>
+                                    <td>Honors Biology Final</td>
+                                    <td>December, 2025</td>
+                                    <td>97/100</td>
+                                    <td>noticed gaps in my understanding of biological processes.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="leadership" class="section">
+            <div class="container">
+                <h2 class="section-title">Leadership & Service</h2>
+                <div class="grid-2">
+                    
+                    <div class="card" style="border-top: 4px solid var(--brand);">
+                        <span class="card-subtitle">Mentorship</span>
+                        <h3 class="card-title">Kumon Teaching Assistant</h3>
+                        <p style="color: var(--muted); margin-bottom: 16px;">
+                            Mentoring younger students in reading and mathematics fundamentals.
+                        </p>
+                        <ul style="padding-left: 20px; line-height: 1.6; color: var(--ink);">
+                            <li>Teaching core arithmetic strategies to K-5 students.</li>
+                            <li>Monitoring student progress and grading daily work.</li>
+                            <li>Building confidence in students struggling with new concepts.</li>
+                        </ul>
+                    </div>
+
+                    <div class="card" style="border-top: 4px solid var(--brand);">
+                        <span class="card-subtitle">Organization</span>
+                        <h3 class="card-title">Tennis Tournament Organizer</h3>
+                        <p style="color: var(--muted); margin-bottom: 16px;">
+                            Managed logistics and scheduling for local youth tennis tournaments.
+                        </p>
+                        <ul style="padding-left: 20px; line-height: 1.6; color: var(--ink);">
+                            <li>Coordinated match schedules for 20+ players.</li>
+                            <li>Managed court availability and dispute resolution.</li>
+                            <li>Demonstrated leadership under strict time constraints.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section" style="background: var(--navy); color: white;">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">Projects</h2>
+                <div class="grid-3">
+                    
+                    <div class="project-box">
+                        <h3 style="color: var(--brand); margin-top: 0;">ActiveSTEM Math Marathon</h3>
+                        <p>Timed high-pressure problem solving to master ACT-level mathematics.</p>
+                    </div>
+
+                    <div class="project-box">
+                        <h3 style="color: var(--brand); margin-top: 0;">Automotive Aerodynamics</h3>
+                        <p>Independent research into fluid dynamics and automotive efficiency.</p>
+                    </div>
+
+                    <div class="project-box">
+                        <h3 style="color: var(--brand); margin-top: 0;">Algebra Textbook Solutions</h3>
+                        <p>Authored comprehensive solution sets for an upcoming algebra educational resource.</p>
+                        <div class="pub-date-badge">
+                            Pub Date: Summer 2026
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="documents" class="section" style="background: #f8fafc;">
+            <div class="container">
+                <h2 class="section-title">Documents & Technical Work</h2>
                 
                 <div class="latex-container">
                     <div>
-                        <h3>What is LaTeX?</h3>
-                        <p style="margin-bottom: 20px;">LaTeX is a high-quality typesetting system used for scientific and mathematical documentation. It allows for precise control over complex equations and logical document structure, making it the industry standard for academic research and engineering papers.</p>
+                        <h3>Academic Artifacts</h3>
+                        <p style="margin-bottom: 20px;">I use LaTeX to produce high-quality mathematical documentation. This section houses my technical proofs, problem sets, and portfolio files.</p>
                         
                         <div class="card" style="border-left: 4px solid var(--brand);">
                             <h4 style="margin: 0 0 10px 0;">Extreme Math Solutions</h4>
@@ -356,23 +654,8 @@
                     </div>
 
                     <div>
-                        <embed src="Images/Extreme_Algebra_SOLs%20(1).pdf#view=FitH" type="application/pdf" class="latex-preview-frame">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="section" style="background: var(--navy); color: white;">
-            <div class="container">
-                <h2 class="section-title" style="color: white;">Projects</h2>
-                <div class="grid-2">
-                    <div style="border: 1px solid rgba(255,255,255,0.2); padding: 30px; border-radius: 8px;">
-                        <h3 style="color: var(--brand); margin-top: 0;">ActiveSTEM Math Marathon</h3>
-                        <p>Timed high-pressure problem solving to master ACT-level mathematics.</p>
-                    </div>
-                    <div style="border: 1px solid rgba(255,255,255,0.2); padding: 30px; border-radius: 8px;">
-                        <h3 style="color: var(--brand); margin-top: 0;">Automotive Aerodynamics</h3>
-                        <p>Independent research into fluid dynamics and automotive efficiency.</p>
+                        <img src="Images/LaTeXsolex.jpeg" alt="LaTeX Preview" class="latex-preview-image" onclick="openLightbox(this.src)" title="Click to expand">
+                        <p style="text-align: center; font-size: 0.8rem; margin-top: 8px; color: var(--brand); font-weight: bold;">(Click image to view full size)</p>
                     </div>
                 </div>
             </div>
@@ -391,7 +674,7 @@
     </main>
 
     <script>
-        // Typing Effect - Improved Deleting
+        // --- 1. Typing Effect ---
         const typingEl = document.querySelector('.typing');
         const text = "Student. Developer. Engineer.";
         let charIndex = 0; 
@@ -399,33 +682,92 @@
         
         function type() {
             if (!isDeleting && charIndex < text.length) {
-                // Typing forward
                 typingEl.textContent += text.charAt(charIndex++);
                 setTimeout(type, 80);
             } else if (!isDeleting && charIndex === text.length) {
-                // Pause at end
                 isDeleting = true;
                 setTimeout(type, 2000);
             } else if (isDeleting && charIndex > 0) {
-                // Deleting backward
                 typingEl.textContent = text.substring(0, --charIndex);
                 setTimeout(type, 50);
             } else {
-                // Pause before restarting
                 isDeleting = false;
                 setTimeout(type, 500);
             }
         }
-        
         document.addEventListener('DOMContentLoaded', () => setTimeout(type, 500));
 
-        // Accordion Logic
+        // --- 2. Mobile Menu Toggle ---
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        const navItems = document.querySelectorAll('.nav-link, .nav-btn');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // --- 3. Accordion Logic ---
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
                 const content = header.nextElementSibling;
                 content.classList.toggle('open');
                 content.style.maxHeight = content.classList.contains('open') ? content.scrollHeight + "px" : null;
             });
+        });
+
+        // --- 4. Tab Logic (Academics) ---
+        function openTab(evt, tabName) {
+            // Hide all contents
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            // Remove active class from all buttons
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            // Show current tab, add active class to button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // --- 5. Lightbox Logic (Image View) ---
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop scrolling
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto'; // Resume scrolling
+        }
+
+        // --- 6. Back To Top ---
+        const backToTopBtn = document.getElementById('backToTop');
+        const academicsSection = document.getElementById('academics');
+
+        window.addEventListener('scroll', () => {
+            if (!academicsSection) return;
+            const triggerPoint = academicsSection.offsetTop;
+            if (window.scrollY >= triggerPoint) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
