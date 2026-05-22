@@ -1,4 +1,4 @@
-## Hi there 👋
+## This is my Repo for the stuff I used to make my student portfolio.
 
 <!--
 **AarnavBaddam/AarnavBaddam** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
